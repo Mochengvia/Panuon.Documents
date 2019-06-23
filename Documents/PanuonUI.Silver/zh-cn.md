@@ -42,8 +42,8 @@ FontFamily="{DynamicResource FontAwesome}"
 
 
 ## Window 窗体
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 Applying | Boolean | False | 获取或设置是否使用PanuonUI.Silver的窗体样式。
 WindowAnimation | Enum(WindowAnimation) | None[/ Fade / Gradual / Scale] | 获取或设置窗体的启动/关闭动画。若要使用该属性，Applying属性的值必须为True。
 OpenCoverMask | Boolean | False | 获取或设置窗体的遮罩层是否打开。若要使用该属性，Applying属性的值必须为True。
@@ -56,8 +56,8 @@ DisableCloseButton | Boolean | False |获取或设置是否禁用窗体的关闭
 
 
 
-方法名称（参数） | 返回值 | 描述
-- | - | -
+|方法名称（参数） | 返回值 | 描述 |
+| - | - | - |
 ShowPopup(Window window, string content, double durationSeconds = 2) | void | 在窗体的下方弹出一个提示气泡。目标窗体的Applying属性无需为True，但目标窗体的Child控件必须为Grid。参数1：要弹出气泡的窗体。参数2：要显示的内容。参数3：气泡的持续时间（秒）。
 ShowMessage(string content, string title = "Tips", Window owner = null, bool showInTaskbar = true, bool autoCoverMask = true) | void | 显示一个消息对话框。参数1：要显示的内容。参数2：窗体标题。参数3：对话框的父窗体，窗体将在父窗体的中央显示。参数4：是否在Taskbar中显示。参数5：是否在对话框弹出时打开Owner的遮罩层，并在对话框关闭时关闭Owner窗体的遮罩层。        
  ShowConfirm(string content, string title = "Tips", Window owner = null, bool showInTaskbar = true, bool autoCoverMask = true) | Boolean | 显示一个消息确认框。参数值同上。
@@ -66,8 +66,8 @@ CloseWaiting(Window owner = null) | void | 关闭等待框。参数1：关闭指
         
 # Button 按钮 / RepeatButton 重复按钮
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 ButtonStyle | Enum(ButtonStyle) | Standard[/ Hollow / Outline / Link] | 获取或设置按钮的基本样式。 
 ClickStyle | Enum(ClickStyle) | None[/ Sink] | 获取或设置按钮点击时的样式。
 HoverBrush | Brush | #3E3E3E | 获取或设置按钮悬浮时的遮罩颜色，该画刷将叠加在按钮的背景色或前景色上（取决于ButtonStyle）。
@@ -82,8 +82,8 @@ Icon | Object | Null | 获取或设置按钮的Icon。它可以是FontAwesome字
 <TextBox pu:TextBoxHelper.Icon="/Resources/icon.png"
              pu:TextBoxHelper.Watermark="Put your text here">
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 Icon | Object | Null | 获取或设置输入框的Icon。它可以是FontAwesome字体，图片Uri字符串，或是任意控件。
 Watermark | String | Null | 获取或设置输入框的水印。
 CornerRadius | CornerRadius | 0 | 获取或设置输入框的边框圆角大小。
@@ -97,8 +97,8 @@ FocusedShadowColor | Color | #888888 | 获取或设置输入框获得焦点时�
              pu:PasswordBoxHelper.Password="{Binding Password, Mode=Twoway}">
 ```
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 Icon | Object | Null | 获取或设置密码框的Icon。它可以是FontAwesome字体，图片Uri字符串，或是任意控件。
 Watermark | String | Null | 获取或设置密码框的水印。
 CornerRadius | CornerRadius | 0 | 获取或设置密码框的边框圆角大小。
@@ -112,8 +112,8 @@ Password | String | Null | 获取或设置密码框的密码。密码框的Passw
 1. 勾选框 ： 指复选框左侧，展示控件勾选状态的框体。
 
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 CheckBoxStyle | Enum(CheckBoxStyle) | Standard[/ Switch / Button] | 获取或设置复选框的基本样式。
 CheckedBackground | Brush |  | 获取或设置复选框被选中时的背景色（CheckBox的背景色仅控制勾选框的背景色）。
 GlyphBrush | Brush | 获取或设置复选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
@@ -128,8 +128,8 @@ CheckedContent | Object | Null | 获取或设置复选框被选中时替代Conte
 术语注释：
 1. 勾选框 ： 指单选框左侧，展示控件勾选状态的框体。
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 RadioButtonStyle | Enum(RadioButtonStyle) | Standard[/ Switch / Button] | 获取或设置单选框的基本样式。
 CheckedBackground | Brush |  | 获取或设置单选框被选中时的背景色（CheckBox的背景色仅控制勾选框的背景色）。
 GlyphBrush | Brush | 获取或设置单选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
@@ -144,8 +144,8 @@ CheckedContent | Object | Null | 获取或设置单选框被选中时替代Conte
 术语注释：
 1. 子项 ： 该组合框中的ComboBoxItem（无论由Items还是ItemsSource生成）。
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 Icon | Object | Null | 获取或设置组合框的Icon。它可以是FontAwesome字体，图片Uri字符串，或是任意控件。
 Watermark | String | Null | 获取或设置组合框的水印。
 CorderRadius | CornerRadius | 0 | 获取或设置组合框的边框圆角大小。不宜设置为过大的值。
@@ -155,8 +155,8 @@ SelectedBrush | Brush | #DDDDDD | 获取或设置子项被选中时的遮罩颜�
 ShadowColor | Color | #888888 | 获取或设置组合框的下拉框的阴影颜色。
 IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在组合框的下拉框中显示搜索框。你必须结合SearchTextChanged事件对用户输入的值进行手动处理（因为在启用虚拟化时，PanuonUI.Silver无法获取你所有的子项实例）。
 
-事件名称 | 事件参数 | 描述
-- | - | - | -
+| 事件名称 | 事件参数 | 描述 |
+| - | - | - | - |
 SearchTextChanged | String | 当用户在搜索框（IsSearchTextBoxVisible属性为True时显示）中输入内容时，触发此事件。事件的参数为String类型，参数内容为用户输入的值。在该事件的处理方法中，你可以通过将项目移除的方式来实现搜索，或是设置ComboBox的ItemContainerStyle属性，将ComboBoxItem的Visibility属性绑定到你的后台数据属性中。
 
 ## TreeView 树视图
@@ -165,8 +165,8 @@ SearchTextChanged | String | 当用户在搜索框（IsSearchTextBoxVisible属�
 1. 子项 ： 该树视图中的TreeViewItem（无论由Items还是ItemsSource生成）。
 
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 TreeViewStyle | Enum(TreeViewStyle) | Standard[/ Classic / Modern / Chain] | 获取或设置树视图的基本样式。
 SelectMode | Enum(SelectMode) | Any[/ ChildOnly] | 获取或设置树视图的选中模式。当属性值为ChildOnly时，所有含有子项（HasItems为True）的子项都无法被选中。
 ExpandMode | Enum(ExpandMode) | DoubleClick[/ SingleClick] | 获取或设置树视图的展开模式。当属性值为SingleClick时，只需单击即可展开子项。
@@ -178,8 +178,8 @@ ItemIcon | Object | Null | 获取或设置TreeViewItem的Icon。*该属性不是
 
 ## ProgressBar 进度条
 
-属性名称 | 属性类型 | 默认值[其他值] | 描述
-- | - | - | -
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
 ProgressBarStyle | Enum(ProgressBarStyle) | Standard[/ Ring] | 获取或设置进度条的基本样式。
 CorderRadius | CornerRadius | 0 | 获取或设置进度条的边框圆角大小。该属性对Ring样式无效。
 AnimateTo | Double | 0 | 将进度条的Value值动态地变化到目标值。使用该属性可以获得动画增减的进度效果。
