@@ -116,8 +116,8 @@ Password | String | Null | 获取或设置密码框的密码。密码框的Passw
 | - | - | - | - |
 CheckBoxStyle | Enum(CheckBoxStyle) | Standard[/ Switch / Button] | 获取或设置复选框的基本样式。
 CheckedBackground | Brush |  | 获取或设置复选框被选中时的背景色（CheckBox的背景色仅控制勾选框的背景色）。
-GlyphBrush | Brush | 获取或设置复选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
-CheckedGlyphBrush | Brush |   | 获取或设置复选框被选中时，勾选框的前景色。
+GlyphBrush | Brush | #FFFFFF | 获取或设置复选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
+CheckedGlyphBrush | Brush | #FFFFFF | 获取或设置复选框被选中时，勾选框的前景色。
 BoxHeight | Double | 16(Standard) / 22(Switch) | 获取或设置复选框的勾选框的高度。
 BoxWidth | Double | 16(Standard) / 34(Switch) |获取或设置复选框的勾选框的宽度。
 CorderRadius | CornerRadius | 0 | 获取或设置复选框的边框圆角大小（对Switch样式无效）。
@@ -132,8 +132,8 @@ CheckedContent | Object | Null | 获取或设置复选框被选中时替代Conte
 | - | - | - | - |
 RadioButtonStyle | Enum(RadioButtonStyle) | Standard[/ Switch / Button] | 获取或设置单选框的基本样式。
 CheckedBackground | Brush |  | 获取或设置单选框被选中时的背景色（CheckBox的背景色仅控制勾选框的背景色）。
-GlyphBrush | Brush | 获取或设置单选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
-CheckedGlyphBrush | Brush |   | 获取或设置单选框被选中时，勾选框的前景色。
+GlyphBrush | Brush | #FFFFFF | 获取或设置单选框的勾选框的前景色（Standard样式下对勾的颜色，Switch样式下Toggle圆球的颜色）
+CheckedGlyphBrush | Brush | #FFFFFF | 获取或设置单选框被选中时，勾选框的前景色。
 BoxHeight | Double | 16(Standard) / 22(Switch) | 获取或设置单选框的勾选框的高度。
 BoxWidth | Double | 16(Standard) / 34(Switch) |获取或设置单选框的勾选框的宽度。
 CorderRadius | CornerRadius | 0 | 获取或设置单选框的边框圆角大小（对Switch样式无效）。
@@ -156,7 +156,7 @@ ShadowColor | Color | #888888 | 获取或设置组合框的下拉框的阴影颜
 IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在组合框的下拉框中显示搜索框。你必须结合SearchTextChanged事件对用户输入的值进行手动处理（因为在启用虚拟化时，PanuonUI.Silver无法获取你所有的子项实例）。
 
 | 事件名称 | 事件参数 | 描述 |
-| - | - | - | - |
+| - | - | - |
 SearchTextChanged | String | 当用户在搜索框（IsSearchTextBoxVisible属性为True时显示）中输入内容时，触发此事件。事件的参数为String类型，参数内容为用户输入的值。在该事件的处理方法中，你可以通过将项目移除的方式来实现搜索，或是设置ComboBox的ItemContainerStyle属性，将ComboBoxItem的Visibility属性绑定到你的后台数据属性中。
 
 ## TreeView 树视图
