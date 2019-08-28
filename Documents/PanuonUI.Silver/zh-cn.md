@@ -62,15 +62,15 @@ WindowXCaption中的属性：
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 Height | Double | 35.0 | 获取或设置标题栏的高度。
-Background | Brush | - | 获取或设置标题栏的背景色。
-Foreground | Brush | - | 获取或设置标题栏的前景色。
-Header | Object | - | 获取或设置标题栏的内容。当此值不为空时，Title和Icon将被隐藏，并显示为Header的内容。你可以通过此属性重新设计WindowX的标题栏。
+Background | Brush | Transparent | 获取或设置标题栏的背景色。
+Foreground | Brush | #3E3E3E | 获取或设置标题栏的前景色。
+Header | Object | Null | 获取或设置标题栏的内容。当此值不为空时，Title和Icon将被隐藏，并显示为Header的内容。你可以通过此属性重新设计WindowX的标题栏。
 ExtendControl | UIElement | Null | 获取或设置标题栏额外的控件，该控件将显示在最小化按钮的左侧。若要使用多个控件，你可以使用StackPanel或其他容器。
 MinimizeButtonStyle | Style | - | 获取或设置最小化按钮的样式。
 MaximizeButtonStyle | Style | - | 获取或设置最大化按钮的样式。
 CloseButtonStyle | Style | - | 获取或设置关闭按钮的样式。
-DisableCloseButton | Boolean | - | 获取或设置是否禁用关闭按钮。用户仍然可以通过强制关闭（例如Alt + F4）的方式关闭窗体。
-HideBasicButtonsButton | Boolean | - | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，Header属性的内容将横向铺满整个窗体标题。
+DisableCloseButton | Boolean | False | 获取或设置是否禁用关闭按钮。用户仍然可以通过强制关闭（例如Alt + F4）的方式关闭窗体。
+HideBasicButtonsButton | Boolean | False | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，Header属性的内容将横向铺满整个窗体标题。
   
 
 # Button 按钮 / RepeatButton 重复按钮
