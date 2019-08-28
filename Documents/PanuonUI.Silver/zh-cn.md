@@ -41,10 +41,10 @@ FontFamily="{DynamicResource FontAwesome}"
 
 
 
-## WindowX 窗体X
+# WindowX 窗体X
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
-|IsMaskVisible | Boolean | False | 获取或设置是否使用遮罩层是否打开。|
+|IsMaskVisible | Boolean | False | 获取或设置窗体的遮罩层是否打开。|
 
 
 你可以使用WindowXCaption辅助类来为WinodowX设计标题。使用WindowX和WindowXCaption设计出的窗体仍然具有WindowBase的框架（WindowsStyle不为None，且AllowTransparent为False），不会影响内部控件的性能。
@@ -72,6 +72,11 @@ CloseButtonStyle | Style | - | 获取或设置关闭按钮的样式。
 DisableCloseButton | Boolean | False | 获取或设置是否禁用关闭按钮。用户仍然可以通过强制关闭（例如Alt + F4）的方式关闭窗体。
 HideBasicButtonsButton | Boolean | False | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，Header属性的内容将横向铺满整个窗体标题。
   
+Tips：  
+Q: 如何完全隐藏窗体的标题？  
+A: 将pu:WindowXCaption.Height设置为0即可。  
+Q：为什么最小化按钮（/最大化按钮/关闭按钮）的样式不起作用？  
+A：如果按钮的样式不是Standard，需要将所有的Setter放置在ButtonStyle的DataTrigger中。如果不明白，请参考UIBrowser/Resources/Styles.xaml中NeteaseMusicWindow样式的写法。  
 
 # Button 按钮 / RepeatButton 重复按钮
 
