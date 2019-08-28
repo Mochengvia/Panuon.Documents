@@ -41,29 +41,38 @@ FontFamily="{DynamicResource FontAwesome}"
 
 
 
-## Window 窗体
+## WindowX 窗体X
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
-Applying | Boolean | False | 获取或设置是否使用PanuonUI.Silver的窗体样式。
-WindowAnimation | Enum(WindowAnimation) | None[/ Fade / Gradual / Scale] | 获取或设置窗体的启动/关闭动画。若要使用该属性，Applying属性的值必须为True。
-OpenCoverMask | Boolean | False | 获取或设置窗体的遮罩层是否打开。若要使用该属性，Applying属性的值必须为True。
-Icon | Object | Null | 获取或设置窗体标题左侧的Icon。它可以是FontAwesome字体，图片Uri字符串，或是任意控件。若要使用该属性，Applying属性的值必须为True。
-NavbarBackground | Brush |  | 获取或设置窗体标题控制栏的背景色。
-NavbarForeground | Brush |  | 获取或设置窗体标题控制栏的前景色。
-NavbarHeight | Double |  | 获取或设置窗体标题控制栏的高度。将此属性的值设置为0，即可自定义你的窗体样式。
-ExtendNavControl | UIElement | Null | 获取或设置窗体控制栏的额外控件。该控件将显示在窗体控制按钮（关闭、最大化、最小化）的左侧。若要添加多个控件，你可以使用StackPanel等容器。
-DisableCloseButton | Boolean | False |获取或设置是否禁用窗体的关闭按钮。但用户仍然可以使用Alt + F4的方式强制关闭窗体。
+|IsMaskVisible | Boolean | False | 获取或设置是否使用遮罩层是否打开。|
 
 
+你可以使用WindowXCaption辅助类来为WinodowX设计标题。使用WindowX和WindowXCaption设计出的窗体仍然具有WindowBase的框架（WindowsStyle不为None，且AllowTransparent为False），不会影响内部控件的性能。
 
-|方法名称（参数） | 返回值 | 描述 |
-| - | - | - |
-ShowPopup(Window window, string content, double durationSeconds = 2) | void | 在窗体的下方弹出一个提示气泡。目标窗体的Applying属性无需为True，但目标窗体的Child控件必须为Grid。参数1：要弹出气泡的窗体。参数2：要显示的内容。参数3：气泡的持续时间（秒）。
-ShowMessage(string content, string title = "Tips", Window owner = null, bool showInTaskbar = true, bool autoCoverMask = true) | void | 显示一个消息对话框。参数1：要显示的内容。参数2：窗体标题。参数3：对话框的父窗体，窗体将在父窗体的中央显示。参数4：是否在Taskbar中显示。参数5：是否在对话框弹出时打开Owner的遮罩层，并在对话框关闭时关闭Owner窗体的遮罩层。        
- ShowConfirm(string content, string title = "Tips", Window owner = null, bool showInTaskbar = true, bool autoCoverMask = true) | Boolean | 显示一个消息确认框。参数值同上。
-ShowWaiting(Window owner, string content, string title = "Processing", Action cancelCallback = null, bool showInTaskbar = false, bool autoCoverMask = true) | void | 显示一个正在执行的消息框（以下简称该窗体为等待框），不应在一个窗体内同时显示多个等待框，这可能会引发未知的问题。参数1、2、3同上。参数4：用户点击取消按钮时的后续操作（等待框不会在用户点击取消按钮后自动关闭）；若该值为Null，取消按钮和关闭按钮将被禁用，但用户仍然可能通过其他手段强制关闭该窗体。参数5、6同上。
-CloseWaiting(Window owner = null) | void | 关闭等待框。参数1：关闭指定父窗体的等待框。若此值为Null，则将关闭所有的等待框实例。若某个窗体中显示了多个等待框，可能会引发未知的问题。
-        
+例如：
+```
+<pu:WindowX ...
+            xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+            pu:WindowXCaption.Height="35">
+</pu:WindowX>
+```
+
+WindowXCaption中的属性：    
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+Height | Double | 35.0 | 获取或设置标题栏的高度。
+Background | Brush | - | 获取或设置标题栏的背景色。
+Foreground | Brush | - | 获取或设置标题栏的前景色。
+Header | Object | - | 获取或设置标题栏的内容。当此值不为空时，Title和Icon将被隐藏，并显示为Header的内容。你可以通过此属性重新设计WindowX的标题栏。
+ExtendControl | UIElement | Null | 获取或设置标题栏额外的控件，该控件将显示在最小化按钮的左侧。若要使用多个控件，你可以使用StackPanel或其他容器。
+MinimizeButtonStyle | Style | - | 获取或设置最小化按钮的样式。
+MaximizeButtonStyle | Style | - | 获取或设置最大化按钮的样式。
+CloseButtonStyle | Style | - | 获取或设置关闭按钮的样式。
+DisableCloseButton | Boolean | - | 获取或设置是否禁用关闭按钮。用户仍然可以通过强制关闭（例如Alt + F4）的方式关闭窗体。
+HideBasicButtonsButton | Boolean | - | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，Header属性的内容将横向铺满整个窗体标题。
+  
+
 # Button 按钮 / RepeatButton 重复按钮
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
