@@ -2,9 +2,9 @@
 
 ## 开始使用
 
-1. 将"Panuon.UI.Silver.dll"添加到你项目的引用中。
+1. 将"Panuon.UI.Silver.dll"添加到你项目的引用中（对于.NET4.0项目，需要额外引用Microsoft.Windows.Shell.dll）。
 
-2. 将以下资源字典添加到App.xaml、Window或其他UserControl的Resource中
+2. 将以下资源字典添加到App.xaml、Window或其他UserControl的Resource或MergedDictionaries中。
 ```
 <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
 ```              
