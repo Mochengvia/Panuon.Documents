@@ -16,7 +16,7 @@ public object CustomData { get;set; }
 ```  
 新增了MouseEventHelper辅助类。  
 
-## 2019-9-10 v1.0.6-rc 
+## 2019-9-10 v1.0.6  
 
 1. 针对ComboBox的改动（`非常重要`）：  
 将HoverBrush重命名为HoverBackground   
