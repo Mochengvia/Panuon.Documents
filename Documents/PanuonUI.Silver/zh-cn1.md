@@ -126,7 +126,7 @@ Q：为什么最小化按钮（/最大化按钮/关闭按钮）的样式不起�
 A：如果按钮的样式不是Standard，需要将所有的Setter放置在ButtonStyle的DataTrigger中。如果不明白，请参考UIBrowser/Resources/Styles.xaml中NeteaseMusicWindow样式的写法。  
 
 ### Button 按钮 / RepeatButton 重复按钮
-示例：  
+代码示例：  
 ```
     <Button Height="30"
             Width="200"
@@ -134,6 +134,14 @@ A：如果按钮的样式不是Standard，需要将所有的Setter放置在Butto
             pu:ButtonHelper.ButtonStyle="Outline"
             pu:ButtonHelper.CornerRadius="15"/>
 ```
+默认样式快照：  
+
+| 样式名称 | 快照 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-standard.jpg)  |
+| Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-hollow.jpg)  |
+| Outline | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-outline.jpg)  |
+| Link | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-link.jpg)  |
 
 ButtonHelper  / RepeatButtonHelper 中的附加属性：  
 
