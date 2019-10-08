@@ -519,6 +519,7 @@ DataGridHelper 中的附加属性：
 与DataGrid有关的特性标签（Attribute）：  
 
 | 特性标签 | 作用范围 | 描述 |
+| - | - | - |
 | IgnoreColumn | 属性 | 表示在数据表自动生成列时，应忽略该属性。 |
 | ReadOnlyColumn | 属性 | 表示在数据表自动生成列时，应生成该属性的只读列。 |
 | ColumnWidth | 属性 | 表示在数据表自动生成列时，应生成指定宽度的列。支持"auto"、"2*"、"100"等用法。 |
