@@ -20,6 +20,7 @@
     - [TabControl 选项卡](#tabcontrol-选项卡)
     - [TreeView 树视图](#treeview-树视图)
     - [Slider 滑块](#slider-滑块)
+    - [DataGrid 数据表](#datagrid-数据表)
 
 
 ***
