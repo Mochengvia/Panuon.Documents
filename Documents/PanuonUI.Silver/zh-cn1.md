@@ -135,8 +135,7 @@ A：如果按钮的样式不是Standard，需要将所有的Setter放置在Butto
             pu:ButtonHelper.CornerRadius="15"/>
 ```
 默认样式快照：  
-
-| 样式名称 | 静止快照 | 悬浮快照 |
+| 样式名称 | 静止 | 悬浮 |
 | - | - | - |
 | Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-standard.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-standard-hover.png) |
 | Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-hollow.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/button-hollow-hover.png) |
@@ -166,6 +165,10 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
              pu:TextBoxHelper.Watermark="PlaceHolder"
              pu:TextBoxHelper.CornerRadius="15"/>
 ```
+默认样式快照：  
+| 静止 | 获得焦点 |
+| - | - |
+| ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/textbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/textbox-hover.png) |
 
 TextBoxHelper 中的附加属性：  
 
@@ -191,6 +194,10 @@ TextBoxHelper 中的附加属性：
                  pu:PasswordBoxHelper.CornerRadius="15"
                  pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 ```
+默认样式快照：  
+| 静止 | 获得焦点 |
+| - | - |
+| ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/passwordbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/passwordbox-hover.png) |
 
 PasswordBoxHelper 中的附加属性：  
 
@@ -216,6 +223,14 @@ PasswordBoxHelper 中的附加属性：
               pu:CheckBoxHelper.CheckBoxStyle="Switch"/>
 ```
 
+默认样式快照：  
+| 样式名称 | 静止 | 悬浮 |
+| - | - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-standard.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-standard-checked.png) |
+| Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch-checked.png) |
+| Outline | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2-checked.png) |
+| Link | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button-checked.png)  |
+
 CheckBoxHelper 中的附加属性：  
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
@@ -240,6 +255,14 @@ CheckBoxHelper 中的附加属性：
               pu:RadioButtonHelper.Header="Option 1 : "
               pu:RadioButtonHelper.RadioButtonStyle="Switch"/>
 ```
+
+默认样式快照：  
+| 样式名称 | 静止 | 悬浮 |
+| - | - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-standard.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-standard-checked.png) |
+| Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch-checked.png) |
+| Outline | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2-checked.png) |
+| Link | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button-checked.png)  |
 
 RadioButtonHelper 中的附加属性：  
 
