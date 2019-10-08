@@ -1,29 +1,26 @@
 # PanuonUI.Silver中文手册  
 
-***
 # 目录
 
-<!-- TOC -->
-- [PanuonUI.Silver中文手册](#panuonuisilver中文手册)
-- [目录](#目录)
-    - [欢迎使用](#欢迎使用)
-    - [使用指引](#使用指引)
-        - [STEP 1. 将PanuonUI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)
-        - [STEP 2. 添加资源字典](#step-2-添加资源字典)
-        - [STEP 3. 在代码中使用PanuonUI.Silver](#step-3-在代码中使用panuonuisilver)
-    - [FontAwesome字体](#fontawesome字体)
-    - [控件库](#控件库)
-        - [WindowX 窗体X](#windowx-窗体x)
-        - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)
-        - [TextBox 文本输入框](#textbox-文本输入框)
-        - [PasswordBox 密码输入框](#passwordbox-密码输入框)
-        - [CheckBox 多选框](#checkbox-多选框)
-        - [RadioButton 单选按钮](#radiobutton-单选按钮)
-        - [ComboBox 单选框](#combobox-单选框)
-        - [ProgressBar 进度条](#progressbar-进度条)
-        - [TabControl 选项卡](#tabcontrol-选项卡)
-        - [TreeView 树视图](#treeview-树视图)
-<!-- /TOC -->
+- [欢迎使用](#欢迎使用)
+- [使用指引](#使用指引)
+    - [STEP 1. 将PanuonUI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)
+    - [STEP 2. 添加资源字典](#step-2-添加资源字典)
+    - [STEP 3. 在代码中使用PanuonUI.Silver](#step-3-在代码中使用panuonuisilver)
+- [FontAwesome字体](#fontawesome字体)
+- [控件库](#控件库)
+    - [WindowX 窗体X](#windowx-窗体x)
+    - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)
+    - [TextBox 文本输入框](#textbox-文本输入框)
+    - [PasswordBox 密码输入框](#passwordbox-密码输入框)
+    - [CheckBox 多选框](#checkbox-多选框)
+    - [RadioButton 单选按钮](#radiobutton-单选按钮)
+    - [ComboBox 单选框](#combobox-单选框)
+    - [ProgressBar 进度条](#progressbar-进度条)
+    - [TabControl 选项卡](#tabcontrol-选项卡)
+    - [TreeView 树视图](#treeview-树视图)
+    - [Slider 滑块](#slider-滑块)
+
 
 ***
 ## 欢迎使用
@@ -147,6 +144,8 @@ A: 将pu:WindowXCaption.Height设置为0即可。
 Q：为什么最小化按钮（/最大化按钮/关闭按钮）的样式不起作用？  
 A：如果按钮的样式不是Standard，需要将所有的Setter放置在ButtonStyle的DataTrigger中。如果不明白，请参考UIBrowser/Resources/Styles.xaml中NeteaseMusicWindow样式的写法。  
 
+***
+
 ### Button 按钮 / RepeatButton 重复按钮
 代码示例：  
 ```
@@ -179,6 +178,8 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
 | Icon | Object | Null | 获取或设置按钮的Icon，该Icon将显示在Content之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
 
 
+***
+
 ### TextBox 文本输入框
 示例：  
 ```
@@ -210,6 +211,8 @@ TextBoxHelper 中的附加属性：
 Tips：  
 Q: 如何禁用获得焦点时的外阴影效果？   
 A: 将pu:TextBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。  
+
+***
 
 ### PasswordBox 密码输入框
 示例：  
@@ -246,6 +249,8 @@ Q: 如何禁用获得焦点时的外阴影效果？
 A: 将pu:PasswordBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。  
 
 
+***
+
 ### CheckBox 多选框
 示例：  
 ```
@@ -279,6 +284,8 @@ CheckBoxHelper 中的附加属性：
 | NullGlyphBrush | Brush | "Auto" | 获取或设置IsChecked为Null时符号的颜色。仅在Standard样式中生效，该值表示方形符号的颜色。请注意，IsChecked为Null时，也只有Standard样式会发生对应的变化。 |
 | Header | Object | Null | 获取或设置显示在勾选框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-多选框 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
+
+***
 
 ### RadioButton 单选按钮
 示例：  
@@ -314,6 +321,8 @@ RadioButtonHelper 中的附加属性：
 | Header | Object | Null | 获取或设置显示在勾选框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-单选按钮 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
 
+***
+
 ### ComboBox 单选框
 示例：  
 ```
@@ -344,6 +353,8 @@ ComboBoxHelper 中的附加属性：
 | Header | Object | Null | 获取或设置显示在勾选框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-单选按钮 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
 
+***
+
 ### ProgressBar 进度条
 示例：  
 ```
@@ -356,8 +367,8 @@ ComboBoxHelper 中的附加属性：
 
 | 样式名称 | 静止 |
 | - | - |
-| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-standard.png) |
-| Ring | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-ring.png) |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-standard.png)  |
+| Ring | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-ring.png)  |
 
 ProgressBarHelper 中的附加属性： 
 
@@ -368,6 +379,8 @@ ProgressBarHelper 中的附加属性：
 | AnimationTo | Double | 0 | 获取或设置进度条的动画目标值。此属性发生变化时，进度变化将使用动画效果。 |
 | AnimationDuration | TimeSpan | 0:0:0.5 | 获取或设置当AnimateTo属性发生改变时，进度条动画效果的持续时间。 |
 | IsPercentVisible | Boolean | False | 获取或设置是否显示百分比。在Standard样式中，文字会自动调整前景色，使其在任何进度下，数值都是可见的。 |
+
+***
 
 ### TabControl 选项卡
 示例：  
@@ -410,6 +423,8 @@ Tips：
 Q: 在使用ItemsSource生成数据时，为何点击删除按钮后，选项卡已从视图中移除，但数据仍存在于数据源集合中？   
 A: 对于使用ItemsSource属性生成的选项卡集合，你需要对Removed事件进行额外处理，并将数据从数据源集合中删除。  
 
+***
+
 ### TreeView 树视图
 示例：  
 ```
@@ -445,4 +460,64 @@ TreeViewHelper 中的附加属性：
 | ItemHeight | Double | 40 | 获取或设置子项的统一高度。 |
 | ItemIcon | Object | 40 | 获取或设置子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 
+***
 
+### Slider 滑块
+示例：  
+```
+    <Slider Height="30"
+            Width="200"
+            pu:SliderHelper.IsTickValueVisible="True" />
+```
+默认样式快照：
+
+| 样式名称 | 静止 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/slider-standard.png)  |
+| Classic | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/slider-classic.png) |
+
+DataTableHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| SliderStyle | SliderStyle | Standard[/Classic/] | 获取或设置滑块的基本样式。 |
+| ThemeBrush | Brush |  | 获取或设置滑块已滑过区域的颜色。未滑过的区域颜色由Background属性控制。 |
+| TrackThickness | Double | 3 | 获取或设置轨道的粗细。 |
+| ThumbSize | Double | 16 | 获取或设置圆形纽扣的大小。 |
+| IsTickValueVisible | Boolean | False | 获取或设置是否显示滑块的实时值。 | 
+
+### DataGrid 数据表
+示例：  
+```
+    <Slider Height="30"
+            Width="200"
+            pu:SliderHelper.IsTickValueVisible="True" />
+```
+默认样式快照：  
+![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/datatable.png) 
+
+DataGridHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| HeaderPadding | Thickness | 10,0,10,0 | 获取或设置数据表标题的内容间距。 |
+| CellPadding | Thickness | 10,0,10,0 | 获取或设置数据表单元格的内容间距。 |
+| HeaderMinHeight | Double |  | 获取或设置数据表标题的最小高度。 |
+| RowMinHeight | Double |  | 获取或设置数据表行的最小高度。 |
+| HeaderBackground | Brush |  | 获取或设置数据表标题的背景色。 |
+| HeaderForeground | Brush |  | 获取或设置数据表标题的前景色。 |
+| ResizeThumbThickness | Brush |  | 获取或设置数据表用于调整边距的滑块粗细。 |
+| ResizeThumbBrush | Brush |  | 获取或设置数据表用于调整边距的滑块颜色。 |
+| ColumnVerticalContentAlignment | VerticalAlignment | Center | 获取或设置数据表列内容位于垂直方向上的位置。 |
+| HoverBackground | Brush |  | 获取或设置鼠标悬浮时数据表行或单元格的背景色。 |
+| SelectedBackground | Brush |  | 获取或设置数据表行或单元格被选中时的背景色。 |
+| SelectedForeground | Brush |  | 获取或设置数据表行或单元格被选中时的前景色。 |
+| AutoGenerateCheckBoxStyle | Style |  | 获取或设置数据表自动生成的CheckBox的样式。 |
+| RowHeaderBrush | Brush |  | 获取或设置数据表行标头的颜色。 |
+
+与DataGrid有关的特性标签（Attribute）：  
+
+| 特性标签 | 作用范围 | 描述 |
+| IgnoreColumn | 属性 | 表示在数据表自动生成列时，应忽略该属性。 |
+| ReadOnlyColumn | 属性 | 表示在数据表自动生成列时，应生成该属性的只读列。 |
+| ColumnWidth | 属性 | 表示在数据表自动生成列时，应生成指定宽度的列。支持"auto"、"2*"、"100"等用法。 |
