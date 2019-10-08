@@ -2,20 +2,15 @@
 
 ***
 # 目录
-<!-- TOC --> 
-- [使用指引](#使用指引)      
-    - [STEP 1. 将Panuon.UI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)
-    - [STEP 2. 添加资源字典](#step-2-添加资源字典)
-    - [STEP 3. 在代码中使用Panuon.UI.Silver](#step-3-在代码中使用panuonuisilver)
-- [FontAwesome字体](#fontawesome字体)  
-- [控件库](#控件库)      
-    - [WindowX 窗体X](#windowx-窗体x)
-<!-- TOC -->
+
+<!-- TOC -->autoauto- [PanuonUI.Silver中文手册](#panuonuisilver中文手册)auto- [目录](#目录)auto    - [欢迎使用](#欢迎使用)auto    - [使用指引](#使用指引)auto        - [STEP 1. 将PanuonUI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)auto        - [STEP 2. 添加资源字典](#step-2-添加资源字典)auto        - [STEP 3. 在代码中使用PanuonUI.Silver](#step-3-在代码中使用panuonuisilver)auto    - [FontAwesome字体](#fontawesome字体)auto    - [控件库](#控件库)auto        - [WindowX 窗体X](#windowx-窗体x)auto        - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)auto        - [TextBox 文本输入框](#textbox-文本输入框)auto        - [PasswordBox 密码输入框](#passwordbox-密码输入框)auto        - [CheckBox 多选框](#checkbox-多选框)auto        - [RadioButton 单选按钮](#radiobutton-单选按钮)auto        - [ComboBox 单选框](#combobox-单选框)auto        - [ProgressBar 进度条](#progressbar-进度条)auto        - [TabControl 选项卡](#tabcontrol-选项卡)auto        - [TreeView 树视图](#treeview-树视图)autoauto<!-- /TOC -->
+
 ***
 ## 欢迎使用
 
-PanuonUI.Silver是一个可以高度自定义UI控件样式的Modern风格控件库，其绝大多数控件都遵循了MVVM设计原则。PanuonUI.Silver的意义在于，你只需更改几个属性值或调用一些方法，就可以轻松DIY出属于你自己风格的UI界面，而无需深入了解Style的写法，或是Trigger等属性的用法。因而采用PanuonUI.Sivler设计出的UI界面，风格可能是迥然不同的。  
-PanuonUI.Silver不像DevExpress等控件库那样，通过简单的拖拖拽拽和点击，就能快速生成带有丰富色彩、且统一风格的UI界面。虽然PanuonUI.Silver提供了一组默认的样式，但这些样式可能不能满足你的日常需求，因此你可能需要借助UIBrowser中的“调色板”功能，来快速设计调整你的控件样式，并直接获取其代码。要最大化利用PanuonUI.Silver控件库的优势，你需要具有一定的审美能力，或是拥有一个出色的设计师小伙伴提供图纸。    
+PanuonUI.Silver是一个可以高度自定义控件样式的Modern风格WPF控件库，其绝大多数控件都遵循了MVVM设计原则。PanuonUI.Silver的意义在于，你只需更改几个属性值，或调用一些方法，就可以轻松DIY出属于你自己风格的UI界面，而无需深入了解Style的写法，或是Trigger等属性的用法。  
+PanuonUI.Silver不像DevExpress等控件库那样，通过简单的拖拖拽拽和点击，就能快速生成带有丰富色彩、统一风格的UI界面。虽然PanuonUI.Silver提供了一组默认的样式，但这些样式可能不能满足你的日常需求。UIBrowser中提供了“调色板”功能，你可以用它来快速设计、调整你的控件样式，并获取其代码。只需下载GitHub项目并用Visual Studio打开，你就能找到它。  
+要最大化利用PanuonUI.Silver控件库的优势，你需要具有一定的审美能力，或者拥有一张现成的设计图。    
 
 ## 使用指引  
   
@@ -102,6 +97,13 @@ WindowX中的自定义依赖属性：
 |IsMaskVisible | Boolean | False | 获取或设置窗体的遮罩层是否打开。|
 |DisableForceClosing | Boolean | False | 获取或设置是否允许用户强制关闭窗体。若此值为True，用户只能通过关闭按钮来关闭窗体。若要在代码中执行关闭操作，必须使用ForceClose()方法。|
 
+WindowX中的方法：  
+
+| 方法名称 | 参数 | 描述 | 
+| - | - | - |
+| ForceClose | - | 关闭当前窗体。当DisableForceClosing属性为True时，必须使用此方法关闭窗体。 |
+
+
 WindowXCaption中的附加属性：  
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
@@ -185,6 +187,9 @@ TextBoxHelper 中的附加属性：
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
 | IsClearButtonVisible | Boolean | False | 获取或设置是否显示清空按钮。 |
 
+Tips：  
+Q: 如何禁用获得焦点时的外阴影效果？   
+A: 将pu:TextBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。  
 
 ### PasswordBox 密码输入框
 示例：  
@@ -216,6 +221,10 @@ PasswordBoxHelper 中的附加属性：
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
 | IsShowPwdButtonVisible | Boolean | False | 获取或设置是否显示“显示密码”按钮。 |
 
+Tips：  
+Q: 如何禁用获得焦点时的外阴影效果？   
+A: 将pu:PasswordBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。  
+
 
 ### CheckBox 多选框
 示例：  
@@ -228,12 +237,12 @@ PasswordBoxHelper 中的附加属性：
 
 默认样式快照：  
 
-| 样式名称 | 静止 | 悬浮 |
+| 样式名称 | 静止 | 选中时 |
 | - | - | - |
 | Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-standard.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-standard-checked.png) |
-| Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch-checked.png) |
-| Outline | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2-checked.png) |
-| Link | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button-checked.png)  |
+| Switch | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch-checked.png) |
+| Switch2 | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-switch2-checked.png) |
+| Button | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/checkbox-button-checked.png)  |
 
 CheckBoxHelper 中的附加属性：  
 
@@ -262,12 +271,12 @@ CheckBoxHelper 中的附加属性：
 
 默认样式快照：  
 
-| 样式名称 | 静止 | 悬浮 |
+| 样式名称 | 静止 | 选中时 |
 | - | - | - |
 | Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-standard.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-standard-checked.png) |
-| Hollow | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch-checked.png) |
-| Outline | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2-checked.png) |
-| Link | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button-checked.png)  |
+| Switch | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch-checked.png) |
+| Switch2 | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-switch2-checked.png) |
+| Button | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/radiobutton-button-checked.png)  |
 
 RadioButtonHelper 中的附加属性：  
 
@@ -293,6 +302,11 @@ RadioButtonHelper 中的附加属性：
               pu:ComboBoxHelper.Header="Select one : "
               pu:ComboBoxHelper.ItemHeight="30"/>
 ```
+默认样式快照：  
+
+| 静止 | 展开 |
+| - | - |
+| ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox-expanded.png) |
 
 ComboBoxHelper 中的附加属性：  
 
@@ -309,3 +323,106 @@ ComboBoxHelper 中的附加属性：
 | NullGlyphBrush | Brush | "Auto" | 获取或设置IsChecked为Null时符号的颜色。仅在Standard样式中生效，该值表示方形符号的颜色。请注意，IsChecked为Null时，也只有Standard样式会发生对应的变化。 |
 | Header | Object | Null | 获取或设置显示在勾选框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-单选按钮 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
+
+### ProgressBar 进度条
+示例：  
+```
+    <ProgressBar Height="30"
+              Width="200"
+              pu:ProgressBarHelper.CornerRadius="15"
+              pu:ProgressBarHelper.IsPercentVisible="True"/>
+```
+默认样式快照：  
+
+| 样式名称 | 静止 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-standard.png) |
+| Ring | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/comboxbox.png)  | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/progressbar-ring.png) |
+
+ProgressBarHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| ProgressBarStyle | ProgressBarStyle | Standard[/Ring]] | 获取或设置进度条的基本样式。 |
+| CornerRadius | Double | 0 | 获取或设置进度条的圆角大小。在Ring样式中，该属性无效。 |
+| AnimationTo | Double | 0 | 获取或设置进度条的动画目标值。此属性发生变化时，进度变化将使用动画效果。 |
+| AnimationDuration | TimeSpan | 0:0:0.5 | 获取或设置当AnimateTo属性发生改变时，进度条动画效果的持续时间。 |
+| IsPercentVisible | Boolean | False | 获取或设置是否显示百分比。在Standard样式中，文字会自动调整前景色，使其在任何进度下，数值都是可见的。 |
+
+### TabControl 选项卡
+示例：  
+```
+    <TabControl Height="30"
+                Width="200"
+                pu:TabControlHelper.ItemHeight="30"
+                pu:TabControlHelper.CanRemove="True">
+        <TabItem Header="Option1" />
+        <TabItem Header="Option2" />
+        <TabItem Header="Option3" />
+    </TabControl>
+```
+默认样式快照：  
+
+| 样式名称 | 静止 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/tabcontrol-standard.png)  |
+| Classic | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/tabcontrol-classic.png) |
+| Card | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/tabcontrol-card.png) |
+
+TabControlHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| TabControlStyle | TabControlStyle | Standard[/Classic/Card]] | 获取或设置选项卡的基本样式。 |
+| ItemHeight | Double | 40 | 获取或设置单个条目的统一高度。 |
+| SelectedForeground | Brush | 0 | 获取或设置选项卡被选中时的前景颜色。 |
+| SelectedBackground | Brush | 0:0:0.5 | 获取或设置选项卡被选中时的背景颜色。 |
+| ExtendControl | UIElement | Null | 获取或设置额外的控件，该控件将显示在选项卡列表的左侧。 |
+| CanRemove | Boolean | False | 获取或设置是否允许移除选项卡。需要注意：对于使用ItemsSource属性绑定的方式，用户点击叉号后，该项目并不会从源数据集合中被移除，你需要对Removed事件进行额外处理。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemIcon | Object | Null | 获取或设置选项卡的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+
+TabControlHelper 中的事件：  
+| 事件名称 | 事件参数 | 事件描述 | 
+| - | - | - |
+| Removed | TabItemRemovedEventArgs | 指示某个TabItem已经从视图中移除。 |
+
+Tips：  
+Q: 在使用ItemsSource生成数据时，为何点击删除按钮后，选项卡已从视图中移除，但数据仍存在于数据源集合中？   
+A: 对于使用ItemsSource属性生成的选项卡集合，你需要对Removed事件进行额外处理，并将数据从数据源集合中删除。  
+
+### TreeView 树视图
+示例：  
+```
+    <TreeView Height="30"
+                Width="200"
+                pu:TreeViewHelper.ItemHeight="30"
+                pu:TreeViewHelper.SelectMode="ChildOnly">
+        <TreeViewItem Header="Header1" />
+        <TreeViewItem Header="Header2" />
+        <TreeViewItem Header="Header3" />
+    </TreeView>
+```
+默认样式快照：  
+
+| 样式名称 | 静止 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/treeview-standard.png)  |
+| Classic | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/treeview-classic.png) |
+| Modern | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/treeview-modern.png) |
+| Chain | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/treeview-chain.png) |
+
+TreeViewHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| TreeViewStyle | TreeViewStyle | Standard[/Classic/Modern/Card]] | 获取或设置树视图的基本样式。 |
+| SelectMode | SelectMode | Any[/ChildOnly/Disabled] | 获取或设置树视图的选择模式。在ChildOnly模式下，只有没有子项（HasItems为False）的子项可以被选中。在Disabled模式下，任何子项都不能被选中。 |
+| ExpandMode | ExpandMode | DoubleClick[/SingleClick] | 获取或设置树视图的展开/折叠模式。在SingleClick模式下，只需单击子项即可将其展开/折叠。 |
+| ExpandBehaviour | ExpandBehaviour | Any[/OnlyOne] | 获取或设置树视图被的展开行为。在OnlyOne模式下，展开新子项时会将上一个展开的子项折叠（在深度大于2的树视图中可能会出现无法预料的结果）。 |
+| ExpandedBrush | Brush | Null | 获取或设置子项被展开时的背景色。仅对Classic和Modern样式生效。 |
+| SelectedBackground | Brush | False | 获取或设置子项被选中时的背景色。 |
+| SelectedForeground | Brush | Null | 获取或设置子项被选中时的前景色。 |
+| ItemHeight | Double | 40 | 获取或设置子项的统一高度。 |
+| ItemIcon | Object | 40 | 获取或设置子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+
+
