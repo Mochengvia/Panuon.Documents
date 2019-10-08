@@ -156,7 +156,7 @@ A：如果按钮的样式不是Standard，需要将所有的Setter放置在Butto
             pu:ButtonHelper.ButtonStyle="Outline"
             pu:ButtonHelper.CornerRadius="15"/>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 | 悬浮 |
 | - | - | - |
@@ -190,7 +190,7 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
              pu:TextBoxHelper.Watermark="PlaceHolder"
              pu:TextBoxHelper.CornerRadius="15"/>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 静止 | 获得焦点 |
 | - | - |
@@ -225,7 +225,7 @@ A: 将pu:TextBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。
                  pu:PasswordBoxHelper.CornerRadius="15"
                  pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 静止 | 获得焦点 |
 | - | - |
@@ -261,7 +261,7 @@ A: 将pu:PasswordBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。
               pu:CheckBoxHelper.CheckBoxStyle="Switch"/>
 ```
 
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 | 选中时 |
 | - | - | - |
@@ -297,7 +297,7 @@ CheckBoxHelper 中的附加属性：
               pu:RadioButtonHelper.RadioButtonStyle="Switch"/>
 ```
 
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 | 选中时 |
 | - | - | - |
@@ -332,7 +332,7 @@ RadioButtonHelper 中的附加属性：
               pu:ComboBoxHelper.Header="Select one : "
               pu:ComboBoxHelper.ItemHeight="30"/>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 静止 | 展开 |
 | - | - |
@@ -364,7 +364,7 @@ ComboBoxHelper 中的附加属性：
               pu:ProgressBarHelper.CornerRadius="15"
               pu:ProgressBarHelper.IsPercentVisible="True"/>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 |
 | - | - |
@@ -395,7 +395,7 @@ ProgressBarHelper 中的附加属性：
         <TabItem Header="Option3" />
     </TabControl>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 |
 | - | - |
@@ -438,7 +438,7 @@ A: 对于使用ItemsSource属性生成的选项卡集合，你需要对Removed�
         <TreeViewItem Header="Header3" />
     </TreeView>
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 |
 | - | - |
@@ -470,7 +470,7 @@ TreeViewHelper 中的附加属性：
             Width="200"
             pu:SliderHelper.IsTickValueVisible="True" />
 ```
-默认样式快照：
+基础样式快照（与示例代码无关）：  
 
 | 样式名称 | 静止 |
 | - | - |
@@ -494,7 +494,7 @@ DataTableHelper 中的附加属性：
             Width="200"
             pu:SliderHelper.IsTickValueVisible="True" />
 ```
-默认样式快照：  
+基础样式快照（与示例代码无关）：  
 ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/datatable.png) 
 
 DataGridHelper 中的附加属性： 
@@ -523,3 +523,30 @@ DataGridHelper 中的附加属性：
 | IgnoreColumn | 属性 | 表示在数据表自动生成列时，应忽略该属性。 |
 | ReadOnlyColumn | 属性 | 表示在数据表自动生成列时，应生成该属性的只读列。 |
 | ColumnWidth | 属性 | 表示在数据表自动生成列时，应生成指定宽度的列。支持"auto"、"2*"、"100"等用法。 |
+
+### Loading 等待
+
+示例：  
+```
+    <pu:Loading Height="50"
+                Width="50"
+                LoadingStyle="Classic"
+                IsRunning="True"/>
+```
+
+基础样式快照（与示例代码无关）：  
+
+| 样式名称 | 静止 |
+| - | - |
+| Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/loading-standard.png)  |
+| Wave | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/loading-wave.png)  |
+| Ring | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/loading-ring.png)  |
+| Ring2 | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/loading-ring2.png)  |
+| Classic | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/loading-classic.png)  |
+
+Loading中的依赖属性：
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| LoadingStyle | LoadingStyle | Standard[/Wave/Ring/Ring2/Classic] | 获取或设置等待控件的基础样式。在Standard、Wave、Classic样式中，等待控件的颜色只受Foreground属性影响。在Ring、Ring2样式中，等待控件的颜色受Foreground、Background属性的影响。 |
+| IsRunning | Boolean | False | 获取或设置等待控件是否正在运转。 |
