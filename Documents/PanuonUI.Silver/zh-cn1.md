@@ -21,6 +21,9 @@
     - [TreeView 树视图](#treeview-树视图)
     - [Slider 滑块](#slider-滑块)
     - [DataGrid 数据表](#datagrid-数据表)
+    - [Loading 等待](#loading-等待)
+    - [Menu 菜单](#menu-菜单)
+    - [Loading 等待](#contextmenu-上下文菜单)
 
 
 ***
@@ -324,7 +327,7 @@ RadioButtonHelper 中的附加属性：
 
 ***
 
-### ComboBox 单选框
+### ComboBox 下拉单选框
 示例：  
 ```
     <ComboBox Height="30"
@@ -342,17 +345,25 @@ ComboBoxHelper 中的附加属性：
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
-| RadioButtonStyle | RadioButtonStyle | Standard[/Switch/Switch2/Button]] | 获取或设置单选按钮的基本样式。 |
-| CheckedBackground | Brush | Null | 获取或设置单选按钮被选中时的背景颜色。 |
-| GlyphBrush | Brush | #888888 | 获取或设置单选按钮的符号颜色。在Standard样式中，该值表示对勾的颜色。在Switch/Switch2样式中，该值表示圆形纽扣的颜色。在Button样式中，该属性无效。 |
-| CheckedGlyphBrush | Brush | Null | 获取或设置单选按钮被选中时的符号颜色。在Standard样式中，该值表示对勾的颜色。在Switch/Switch2样式中，该值表示圆形纽扣的颜色。在Button样式中，该属性无效。 |
-| BoxHeight | Double | Null | 获取或设置单选按钮内的勾选框高度。在Button样式中，该属性无效。 |
-| BoxWidth | Double | Null | 获取或设置单选按钮内的勾选框宽度。在Button样式中，该属性无效。 |
-| CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置密码框的圆角大小。在Switch样式中，该属性无效。 |
-| CheckedContent | Object | Null | 获取或设置单选按钮被选中时的显示内容。若此值为Null，单选按钮在被选中时内容不会发生变化。 |
-| NullGlyphBrush | Brush | "Auto" | 获取或设置IsChecked为Null时符号的颜色。仅在Standard样式中生效，该值表示方形符号的颜色。请注意，IsChecked为Null时，也只有Standard样式会发生对应的变化。 |
-| Header | Object | Null | 获取或设置显示在勾选框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-单选按钮 的组合。 |
-| HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
+| ItemHeight | Double |  | 获取或设置下拉单选框子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| HoverForeground | Brush |  | 获取或设置鼠标悬浮时下拉单选框子项的前景颜色。 |
+| HoverBackground | Brush |  | 获取或设置鼠标悬浮时下拉单选框子项的背景颜色。 |
+| SelectedForeground | Brush |  | 获取或设置下拉单选框子项被选中时的前景颜色。 |
+| SelectedBackground | Brush |  | 获取或设置下拉单选框子项被选中时的背景颜色。 |
+| CornerRadius | CornerRadius |  | 获取或设置下拉单选框的圆角大小。 |
+| Icon | Object | Null | 获取或设置下拉单选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Watermark | String | Null | 获取或设置下拉单选框的水印（PlaceHolder）。 |
+| IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉单选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
+| SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉单选框中搜索框的水印。 |
+
+ComboBoxHelper 中的事件：  
+| 事件名称 | 事件参数 | 事件描述 | 
+| - | - | - |
+| SearchTextChanged | SearchTextChangedEventHandler | 指示搜索框中的文字发生了变化。 |
+
+Tips：  
+Q: 在搜索框中输入了文字，但是没有搜索效果？   
+A: PanuonUI不会自动执行搜索操作（因为在启用虚拟化场景下无法获取到下拉框的所有子项）。必须对SearchTextChanged添加处理方法，以控制子项的显隐。  
 
 ***
 
@@ -408,7 +419,7 @@ TabControlHelper 中的附加属性：
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | TabControlStyle | TabControlStyle | Standard[/Classic/Card]] | 获取或设置选项卡的基本样式。 |
-| ItemHeight | Double | 40 | 获取或设置单个条目的统一高度。 |
+| ItemHeight | Double | 40 | 获取或设置选项卡子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
 | SelectedForeground | Brush | 0 | 获取或设置选项卡被选中时的前景颜色。 |
 | SelectedBackground | Brush | 0:0:0.5 | 获取或设置选项卡被选中时的背景颜色。 |
 | ExtendControl | UIElement | Null | 获取或设置额外的控件，该控件将显示在选项卡列表的左侧。 |
@@ -455,11 +466,11 @@ TreeViewHelper 中的附加属性：
 | SelectMode | SelectMode | Any[/ChildOnly/Disabled] | 获取或设置树视图的选择模式。在ChildOnly模式下，只有没有子项（HasItems为False）的子项可以被选中。在Disabled模式下，任何子项都不能被选中。 |
 | ExpandMode | ExpandMode | DoubleClick[/SingleClick] | 获取或设置树视图的展开/折叠模式。在SingleClick模式下，只需单击子项即可将其展开/折叠。 |
 | ExpandBehaviour | ExpandBehaviour | Any[/OnlyOne] | 获取或设置树视图被的展开行为。在OnlyOne模式下，展开新子项时会将上一个展开的子项折叠（在深度大于2的树视图中可能会出现无法预料的结果）。 |
-| ExpandedBrush | Brush | Null | 获取或设置子项被展开时的背景色。仅对Classic和Modern样式生效。 |
-| SelectedBackground | Brush | False | 获取或设置子项被选中时的背景色。 |
-| SelectedForeground | Brush | Null | 获取或设置子项被选中时的前景色。 |
-| ItemHeight | Double | 40 | 获取或设置子项的统一高度。 |
-| ItemIcon | Object | 40 | 获取或设置子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ExpandedBrush | Brush | Null | 获取或设置树视图子项被展开时的背景色。仅对Classic和Modern样式生效。 |
+| SelectedBackground | Brush | False | 获取或设置树视图子项被选中时的背景色。 |
+| SelectedForeground | Brush | Null | 获取或设置树视图子项被选中时的前景色。 |
+| ItemHeight | Double | 40 | 获取或设置树视图子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ItemIcon | Object | 40 | 获取或设置树视图子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 
 ***
 
@@ -490,9 +501,9 @@ DataTableHelper 中的附加属性：
 ### DataGrid 数据表
 示例：  
 ```
-    <Slider Height="30"
-            Width="200"
-            pu:SliderHelper.IsTickValueVisible="True" />
+    <DataGrid ItemsSource="{Binding DataTable}"
+              pu:DataGridrHelper.HeaderPadding="5,0"
+              pu:DataGridrHelper.CellPadding="5,0" />
 ```
 基础样式快照（与示例代码无关）：  
 ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/datatable.png) 
@@ -510,10 +521,11 @@ DataGridHelper 中的附加属性：
 | ResizeThumbThickness | Brush |  | 获取或设置数据表用于调整边距的滑块粗细。 |
 | ResizeThumbBrush | Brush |  | 获取或设置数据表用于调整边距的滑块颜色。 |
 | ColumnVerticalContentAlignment | VerticalAlignment | Center | 获取或设置数据表列内容位于垂直方向上的位置。 |
+| ColumnHorizontalContentAlignment | HorizontalAlignment | Stretch | 获取或设置数据表列内容位于水平方向上的位置。 |
 | HoverBackground | Brush |  | 获取或设置鼠标悬浮时数据表行或单元格的背景色。 |
 | SelectedBackground | Brush |  | 获取或设置数据表行或单元格被选中时的背景色。 |
 | SelectedForeground | Brush |  | 获取或设置数据表行或单元格被选中时的前景色。 |
-| AutoGenerateCheckBoxStyle | Style |  | 获取或设置数据表自动生成的CheckBox的样式。 |
+| AutoGenerateCheckBoxStyle | Style | - | 获取或设置数据表自动生成的CheckBox的样式。 |
 | RowHeaderBrush | Brush |  | 获取或设置数据表行标头的颜色。 |
 
 与DataGrid有关的特性标签（Attribute）：  
@@ -523,6 +535,10 @@ DataGridHelper 中的附加属性：
 | IgnoreColumn | 属性 | 表示在数据表自动生成列时，应忽略该属性。 |
 | ReadOnlyColumn | 属性 | 表示在数据表自动生成列时，应生成该属性的只读列。 |
 | ColumnWidth | 属性 | 表示在数据表自动生成列时，应生成指定宽度的列。支持"auto"、"2*"、"100"等用法。 |
+
+以上特性标签位于Panuon.UI.Silver.Core命名空间中。  
+
+***
 
 ### Loading 等待
 
@@ -550,3 +566,67 @@ Loading中的依赖属性：
 | - | - | - | - |
 | LoadingStyle | LoadingStyle | Standard[/Wave/Ring/Ring2/Classic] | 获取或设置等待控件的基础样式。在Standard、Wave、Classic样式中，等待控件的颜色只受Foreground属性影响。在Ring、Ring2样式中，等待控件的颜色受Foreground、Background属性的影响。 |
 | IsRunning | Boolean | False | 获取或设置等待控件是否正在运转。 |
+
+***
+
+### Menu 菜单
+
+示例：  
+```
+    <Menu Height="50"
+          Width="50">
+        <MenuItem Header="Option1">
+        <MenuItem Header="Option2">
+    </Menu>
+                 
+```
+
+基础样式快照（与示例代码无关）：  
+![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/menu.png) 
+
+
+MenuHelper中的附加属性：
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| MenuStyle | MenuStyle | Standard[/Modern] | 获取或设置菜单的基本样式。 |
+| Orientation | Orientation | Horizontal | 获取或设置主菜单的布局方向。 |
+| SubmenuCornerRadius | CornerRadius |  | 获取或设置子菜单的圆角大小。 |
+| HoverBackground | Brush |  | 获取或设置鼠标悬浮时菜单子项的背景色。 |
+| HoverForeground | Brush |  | 获取或设置鼠标悬浮时菜单子项的前景色。 |
+| ShadowColor | Color? |  | 获取或设置菜单及子菜单的阴影颜色。若此值为Null，阴影效果将被禁用。 |
+| SubmenuItemHeight | Double |  | 获取或设置菜单子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ItemPadding | Thickness |  | 获取或设置菜单子项的统一内容间距。 |
+| CheckableCheckboxStyle | Style | - | 获取或设置当菜单子项为Checkable时，替代Icon位置显示的CheckBox的样式。若此值为Null，子项被选中时Icon将被设置为一个对勾符号。 |
+
+***
+
+### ContextMenu 上下文菜单
+
+示例：  
+```
+    <ContextMenu Height="50"
+                 Width="50">
+        <MenuItem Header="Option1">
+        <MenuItem Header="Option2">
+    </ContextMenu>
+                
+```
+
+基础样式快照（与示例代码无关）：  
+![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/contextmenu.png) 
+
+
+ContextMenuHelper中的附加属性：
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| CornerRadius | CornerRadius |  | 获取或设置上下文菜单及子菜单的圆角大小。 |
+| HoverBackground | Brush |  | 获取或设置鼠标悬浮时上下文菜单子项的背景色。 |
+| HoverForeground | Brush |  | 获取或设置鼠标悬浮时上下文菜单子项的前景色。 |
+| ShadowColor | Color? |  | 获取或设置上下文菜单及子菜单的阴影颜色。若此值为Null，阴影效果将被禁用。 |
+| ItemHeight | Double |  | 获取或设置上下文菜单子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ItemPadding | Thickness |  | 获取或设置上下文菜单子项的统一内容间距。 |
+| CheckableCheckboxStyle | Style | - | 获取或设置当上下文菜单子项为Checkable时，替代Icon位置显示的CheckBox的样式。若此值为Null，子项被选中时Icon将被设置为一个对勾符号。 |
+
+***
