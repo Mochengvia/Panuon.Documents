@@ -76,7 +76,7 @@ xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
             Height="30"
             Width="150">
     </Gird>
-</Window>
+</pu:WindowX>
 ```
 对于C#代码，需要添加引用：
 ```
@@ -85,7 +85,7 @@ using Panuon.UI.Silver;
 若要对Button控件实现上面xaml中的相同效果，则C#代码应如下：
 ```
 ButtonHelper.SetButtonStyle(BtnTest, ButtonStyle.Link);
-ButtonHelper.SetCornerRadius(BtnTest, 15);
+ButtonHelper.SetCornerRadius(BtnTest, new CornerRadius(5));
 ```
 
 ## FontAwesome字体    
@@ -642,6 +642,7 @@ var result = MessageBoxX.Show("This is a message.", "Tips", Application.Current.
 ```
 
 MessageBoxX中的属性：
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | MessageBoxXConfigurations | IDictionary<string, MessageBoxXConfigurations> | - | 获取消息框的样式配置储存字典。 |
@@ -705,6 +706,7 @@ handler.Close();
 ```
 
 PendingBox中的属性：
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | PendingBoxConfigurations | IDictionary<string, PendingBoxConfigurations> | - | 获取等待框的样式配置储存字典。 |
