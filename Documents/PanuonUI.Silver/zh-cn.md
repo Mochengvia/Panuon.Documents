@@ -192,13 +192,15 @@ A: 添加以下样式：
        BasedOn="{StaticResource {x:Type Button}}">
     <Setter Property="pu:ButtonHelper.ButtonStyle" 
             Value="Outline"/>
-    <DataTrigger Binding="{Binding Path=(pu:ButtonHelper.ButtonStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
-                 Value="Outline">
-        <Setter Property="pu:ButtonHelper.CornerRadius"
-                Value="15"/>
-        <Setter Property="pu:ButtonHelper.ClickStyle"
-                Value="Sink"/>
-    </DataTrigger>
+    <Style.Triggers>
+        <DataTrigger Binding="{Binding Path=(pu:ButtonHelper.ButtonStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+                    Value="Outline">
+            <Setter Property="pu:ButtonHelper.CornerRadius"
+                    Value="15"/>
+            <Setter Property="pu:ButtonHelper.ClickStyle"
+                    Value="Sink"/>
+        </DataTrigger>
+    </Style.Triggers>
 </Style>
 ```
 除了ButtonStyle外，其他的附加属性都应放在DataTrigger中。  
