@@ -12,7 +12,6 @@ ScrollViewerHelper中的ScrollBarCornerRadius和ScrollBarThickness属性现在�
 新增了Menu样式，详见示例。  
 
 WindowX :  
-默认实现了INotifyPropertyChanged接口。新增了NotifyPropertyChanged方法。  
 新增了DisableForceClosing属性。新增了ForceClose方法。  
 
 WindowXCaption :  
