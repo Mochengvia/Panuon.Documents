@@ -184,6 +184,24 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
 | WaitingContent | Object | "Please wait..." | 获取或设置按钮在IsWaiting为True时显示的内容。 |
 | Icon | Object | Null | 获取或设置按钮的Icon，该Icon将显示在Content之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
 
+Tips :  
+Q： 如何将一个Outline样式、圆角、点击时下沉的按钮样式应用到所有的控件？  
+A: 添加以下样式：  
+```
+<Style TargetType="Button"
+       BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="pu:ButtonHelper.ButtonStyle" 
+            Value="Outline"/>
+    <DataTrigger Binding="{Binding Path=(pu:ButtonHelper.ButtonStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+                 Value="Outline">
+        <Setter Property="pu:ButtonHelper.CornerRadius"
+                Value="15"/>
+        <Setter Property="pu:ButtonHelper.ClickStyle"
+                Value="Sink"/>
+    </DataTrigger>
+</Style>
+```
+除了ButtonStyle外，其他的附加属性都应放在DataTrigger中。  
 
 ***
 
