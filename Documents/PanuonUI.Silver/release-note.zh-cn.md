@@ -9,6 +9,7 @@ ScrollViewerHelper中的ScrollBarCornerRadius和ScrollBarThickness属性现在�
 将所有的ShadowColor属性由Color改为Color?类型。当其值为Null时，阴影效果将被禁用。  
 优化了ColorPicker和ColorSelector的样式和效果。   
 优化了DataGrid的验证错误样式，以及在SelectionUnit为Cell时的表现效果。  
+新增了WaterfallPanel控件。  
 新增了Menu样式，详见示例。  
 
 WindowX :  
@@ -30,8 +31,13 @@ TextBox :
 PasswordBox :  
 新增了IsShowPwdButtonVisible属性。  
 
+TreeView :  
+新增了ItemPadding属性。 
+TreeViewItem的统一Padding值不再取自TreeView的Padding属性，而是由ItemPadding属性接管。  
+
 TabControl :  
-移除了不起作用的DisableSideButton属性，新增了ItemIcon属性。  
+移除了不起作用的DisableSideButton属性，新增了ItemIcon、ItemPadding属性。  
+TabItem的统一Padding值不再取自TabControl的Padding属性，而是由ItemPadding属性接管。  
 将Removed事件的参数由RoutedPropertyChangedEventArgs<TabItem>>变更为TabItemRemovedEventArgs，该类型位于Panuon.UI.Silver.Core命名空间中。   
 
 ContextMenu :  
@@ -40,6 +46,9 @@ ContextMenu :
 DateTimePicker :  
 将SelectedDateTimeChanged事件的参数由RoutedPropertyChangedEventArgs<DateTime>变更为SelectedDateTimeChangedEventArgs，该类型位于Panuon.UI.Silver.Core命名空间中。  
 
+WaterfallPanel & WaterfallViewer :  
+新增了ChildrenShape、ChildrenShapeSizeDelta属性。  
+通过ChildrenShape属性可以将Children中的元素设置成正方形。使用此属性后，可以使用ChildrenShapeSizeDelta属性对正方形元素的长/宽中的一个值（取决于Orienzation）进行增减。  
 
 ## 2019-9-10 v1.0.6  
 
