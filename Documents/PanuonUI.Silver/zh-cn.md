@@ -15,7 +15,8 @@
     - [PasswordBox 密码输入框](#passwordbox-密码输入框)
     - [CheckBox 多选框](#checkbox-多选框)
     - [RadioButton 单选按钮](#radiobutton-单选按钮)
-    - [ComboBox 单选框](#combobox-单选框)
+    - [ComboBox 下拉单选框](#combobox-下拉单选框)
+    - [MultiComboBox 下拉多选框](#multicombobox-下拉多选框)
     - [ProgressBar 进度条](#progressbar-进度条)
     - [TabControl 选项卡](#tabcontrol-选项卡)
     - [TreeView 树视图](#treeview-树视图)
@@ -45,6 +46,7 @@ PanuonUI.Silver不像DevExpress等控件库那样，通过简单的拖拖拽拽�
 3. 以项目形式  
 下载GitHub Zip文件并解压后，将解压文件夹目录下“Net40”（若你的项目使用.NET4.5及以上框架，则为“Net45”）文件夹内的“Panuon.UI.Silver”文件夹拷贝到你项目的根目录（或根目录内的子文件夹）中。切换到Visual Studio，右击你的解决方案，点击“添加” -> “现有项目”，定位到刚刚复制的Panuon.UI.Silver文件夹内，选择“Panuon.UI.Silver.csproj”，并点击“确定”按钮。  
 在你要使用PanuonUI.Silver的项目下的“引用”条目上右击，并选择“添加引用”。选择“项目”选项卡，勾选“Panuon.UI.Silver”项目，并点击“确定”。   
+若项目使用.NET4.0及以下版本，必须在用于启动的应用程序主项目中安装“Microsoft.Windows.Shell”的Nuget包，或是直接添加对Microsoft.Windows.Shell.dll的引用。  
 
 ### STEP 2. 添加资源字典
 打开你应用程序项目中的“App.xaml”，在&lt;Application.Resources&gt;节点内添加如下内容
@@ -368,7 +370,8 @@ ComboBoxHelper 中的附加属性：
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
-| ItemHeight | Double |  | 获取或设置下拉单选框子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ItemHeight | Double | 30 | 获取或设置下拉单选框子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ShadowColor | Color | #888888 | 获取或设置下拉多选框的阴影颜色。 |
 | HoverForeground | Brush |  | 获取或设置鼠标悬浮时下拉单选框子项的前景颜色。 |
 | HoverBackground | Brush |  | 获取或设置鼠标悬浮时下拉单选框子项的背景颜色。 |
 | SelectedForeground | Brush |  | 获取或设置下拉单选框子项被选中时的前景颜色。 |
@@ -378,6 +381,76 @@ ComboBoxHelper 中的附加属性：
 | Watermark | String | Null | 获取或设置下拉单选框的水印（PlaceHolder）。 |
 | IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉单选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
 | SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉单选框中搜索框的水印。 |
+| SearchText | String | Null | 获取或设置下拉单选框中搜索框的文本。 |
+
+ComboBoxHelper 中的事件：  
+| 事件名称 | 事件参数 | 事件描述 | 
+| - | - | - |
+| SearchTextChanged | SearchTextChangedEventHandler | 指示搜索框中的文字发生了变化。 |
+
+Tips：  
+Q: 在搜索框中输入了文字，但是没有搜索效果？   
+A: PanuonUI不会自动执行搜索操作（因为在启用虚拟化场景下无法获取到下拉框的所有子项）。必须对SearchTextChanged添加处理方法，以控制子项的显隐。  
+
+***
+
+### MultiComboBox 下拉多选框
+示例：  
+简易用法：  
+```
+<pu:MultiComboBox x:Name="McmbOption"
+                  Height="30"
+                  Width="200"
+                  SelectionChanged="...">
+    <pu:MultiComboBoxItem Content="Option1"
+                          IsSelected="True" />
+    <pu:MultiComboBoxItem Content="Option2" />
+</pu:MultiComboBox>
+
+    //C# code behind
+    var items = McmbOption.SelectedItems;
+```
+MVVM用法：  
+
+```
+<pu:MultiComboBox x:Name="McmbOption"
+                  Height="30"
+                  Width="200"
+                  ItemsSource="{Binding Options}"
+                  DisplayMemberPath="Name"
+                  SelectionChanged="..." >
+    <pu:MultiComboBox.ItemContainerStyle>
+        <Style TargetType="{x:Type pu:MultiComboBoxItem}"
+               BasedOn="{StaticResource {x:Type pu:MultiComboBoxItem}}">
+            <Setter Property="IsSelected"
+                    Value="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+        </Style>
+    </pu:MultiComboBox.ItemContainerStyle>
+</pu:MultiComboBox>
+
+```
+
+MultiComboBox 中的额外依赖属性：  
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| ItemHeight | Double | 30 | 获取或设置下拉多选框子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
+| ItemPadding | Thickness | 5,0,0,0 | 获取或设置下拉多选框子项的统一内容间距。 |
+| ShadowColor | Color | #888888 | 获取或设置下拉多选框的阴影颜色。 |
+| CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置下拉多选框的圆角大小。 |
+| Icon | Object | Null | 获取或设置下拉多选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Watermark | String | Null | 获取或设置下拉多选框的水印（PlaceHolder）。 |
+| IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉多选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
+| SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉多选框中搜索框的水印。 |
+| SearchText | String | Null | 获取或设置下拉多选框中搜索框的文本。 |
+| MaxDropDownHeight | Double | 150 | 获取或设置下拉多选框子项容器的最大高度。 |
+| IsDropDownOpen | Boolean | False | 获取或设置下拉多选框子项容器是否打开。 |
+| StaysOpen | Boolean | False | 获取或设置当鼠标点击下拉多选框外的区域时，是否仍保持子项容器打开。 |
+| Text | String | Null | 获取或设置下拉多选框的显示文本。 |
+| TextSeparator | String | "," | 获取或设置下拉多选框的文本拼接分隔符。 |
+| ExceededTextFiller | String | "..." | 获取或设置当文本超出最大长度时，在文本后补充的字符。 |
+| MaxTextLength | Int32? | Null | 获取或设置下拉多选框中文本的最大长度。若此值为Null，文本将根据控件的显示宽度自动调整。 |
+| CheckBoxStyle | Style | - | 获取或设置下拉多选框中单选框的样式。 |
 
 ComboBoxHelper 中的事件：  
 | 事件名称 | 事件参数 | 事件描述 | 
@@ -446,6 +519,8 @@ TabControlHelper 中的附加属性：
 | SelectedForeground | Brush | 0 | 获取或设置选项卡被选中时的前景颜色。 |
 | SelectedBackground | Brush | 0:0:0.5 | 获取或设置选项卡被选中时的背景颜色。 |
 | ExtendControl | UIElement | Null | 获取或设置额外的控件，该控件将显示在选项卡列表的左侧。 |
+| DisableScrollButton | Boolean | False | 获取或设置是否禁止显示左右两侧的滚动按钮，即使选项卡子项长度（或宽度）已经超出了选项卡的最大宽度（或最大高度）。 |
+| ItemsAlignment | ItemsAlignment | LeftOrTop[/Center] | 获取或设置选项卡子项容器在选项卡中的位置。 |
 | CanRemove | Boolean | False | 获取或设置是否允许移除选项卡。需要注意：对于使用ItemsSource属性绑定的方式，用户点击叉号后，该项目并不会从源数据集合中被移除，你需要对Removed事件进行额外处理。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 | ItemIcon | Object | Null | 获取或设置选项卡的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 
