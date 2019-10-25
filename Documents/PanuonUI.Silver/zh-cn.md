@@ -522,7 +522,11 @@ TabControlHelper 中的附加属性：
 | DisableScrollButton | Boolean | False | 获取或设置是否禁止显示左右两侧的滚动按钮，即使选项卡子项长度（或宽度）已经超出了选项卡的最大宽度（或最大高度）。 |
 | ItemsAlignment | ItemsAlignment | LeftOrTop[/Center] | 获取或设置选项卡子项容器在选项卡中的位置。 |
 | CanRemove | Boolean | False | 获取或设置是否允许移除选项卡。需要注意：对于使用ItemsSource属性绑定的方式，用户点击叉号后，该项目并不会从源数据集合中被移除，你需要对Removed事件进行额外处理。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
-| ItemIcon | Object | Null | 获取或设置选项卡的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemIcon | Object | Null | 获取或设置选项卡子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemCornerRadius | CornerRadius | 0,0,0,0 | 获取或设置选项卡子项的圆角大小。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemBackground | Brush | Transparent | 获取或设置选项卡子项的统一背景色。 |
+| HeaderPanelBackground | Brush | Null | 获取或设置选项卡的标题栏背景色。 |
+
 
 TabControlHelper 中的事件：  
 | 事件名称 | 事件参数 | 事件描述 | 
@@ -586,7 +590,7 @@ TreeViewHelper 中的附加属性：
 | Standard | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/slider-standard.png)  |
 | Classic | ![](https://raw.githubusercontent.com/Panuon/Panuon.Documents/master/Resources/Panuon.UI.Silver/Snapshots/slider-classic.png) |
 
-DataTableHelper 中的附加属性： 
+SliderHelper 中的附加属性： 
 
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
@@ -728,6 +732,50 @@ ContextMenuHelper中的附加属性：
 | CheckableCheckboxStyle | Style | - | 获取或设置当上下文菜单子项为Checkable时，替代Icon位置显示的CheckBox的样式。若此值为Null，子项被选中时Icon将被设置为一个对勾符号。 |
 
 ***
+
+### GroupBox 组面板
+示例：  
+```
+    <GroupBox Height="30"
+            Width="200"
+            Header="GroupBox"
+            pu:GroupBoxHelper.HeaderPadding="5,10" />
+```
+
+GroupBoxHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| Icon | Object | Null | 获取或设置组面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| CornerRadius | CornerRadius | 0 | 获取或设置组面板的圆角大小。 |
+| HeaderPadding | Thickness | 5,0,0,0 | 获取或设置组面板的标题间距。 |
+| HeaderForeground | Brush | False | 获取或设置组面板的标题前景色。 | 
+| HeaderBackground | Brush | False | 获取或设置组面板的标题背景色。 | 
+| ShadowColor | Color? | Null | 获取或设置组面板的阴影颜色。若此值为Null，阴影效果将被禁用。 | 
+| ExtendControl | UIElement | Null | 获取或设置组面板的额外控件。该控件将显示在Header的右侧。 |
+| IsSplitLineVisible | Boolean | False | 获取或设置是否在组面板的Header与Content之间显示一道分割线。该分割线的颜色受到BorderBrush属性的影响。 |
+
+### Expander 折叠面板
+示例：  
+```
+    <Expander Height="30"
+            Width="200"
+            Header="Expander"
+            pu:ExpanderHelper.HeaderPadding="5,10" />
+```
+
+ExpanderHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| ExpanderStyle | ExpanderStyle | Standard[/Classic/] | 获取或设置折叠面板的基本样式。 |
+| Icon | Object | Null | 获取或设置折叠面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| CornerRadius | CornerRadius | 0 | 获取或设置折叠面板的圆角大小。 |
+| HeaderPadding | Thickness | 5,0,0,0 | 获取或设置折叠面板的标题间距。 |
+| HeaderForeground | Brush | False | 获取或设置折叠面板的标题前景色。 | 
+| HeaderBackground | Brush | False | 获取或设置折叠面板的标题背景色。 | 
+| ShadowColor | Color? | Null | 获取或设置折叠面板的阴影颜色。若此值为Null，阴影效果将被禁用。 | 
+
 
 ### MessageBoxX 消息框
 
