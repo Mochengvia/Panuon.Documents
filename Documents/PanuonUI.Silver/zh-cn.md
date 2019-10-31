@@ -25,8 +25,11 @@
     - [Loading 等待](#loading-等待)
     - [Menu 菜单](#menu-菜单)
     - [ContextMenu 上下文菜单](#contextmenu-上下文菜单)
+    - [Expander 折叠面板](#expander-折叠面板)
+    - [GroupBox 组面板](#groupbox-组面板)
     - [MessageBoxX 消息框](#messageboxx-消息框)
     - [PendingBox 等待框](#pendingbox-等待框)
+- [常见问题](#常见问题)
 
 
 ***
@@ -890,3 +893,55 @@ PendingBoxConfigurations中的属性：
 Tips：  
 Q: PendingBoxXConfigurations属性和configKey参数该如何使用？   
 A: PendingBoxXConfigurations属性提供了一个用于储存样式的字典。你可以在当前AppDomain内的任意位置向其中加入新样式，并在另一处代码中通过该样式的唯一key使用该样式。  
+
+## 常见问题：
+
+### 在资源字典中写了统一的样式，但涉及到附加属性的属性值并未生效。  
+必须在Style中添加相应的BasedOn属性。例如，对于TextBox的样式，需要添加BasedOn="{StaticResource {x:Type TextBox}}"。添加后的样式如下：  
+
+```
+<Style x:Key="MyTextBoxStyle"
+       TargetType="TextBox"
+       BasedOn="{StaticResource {x:Type TextBox}}">
+</Style>
+```
+
+### 对于Button、CheckBox等控件，即使进行了上述操作，一些属性值还是没有生效。
+对于有Style枚举属性的控件（例如Button的ButtonStyle，CheckBox的CheckBoxStyle），当这些属性值发生变化时，PanuonUI.Silver可能会将不同于默认样式的属性值应用到附加属性或依赖属性上。该操作发生在Style的Setters之后，因此你设置的属性值会被其覆盖。最佳的方法是，将属性设置放在DataTrigger中。以Button为例，样式如下：  
+
+```
+<Style TargetType="Button"
+       BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="pu:ButtonHelper.ButtonStyle" 
+            Value="Outline"/>
+    <Style.Triggers>
+        <DataTrigger Binding="{Binding Path=(pu:ButtonHelper.ButtonStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+                    Value="Outline">
+            <Setter Property="pu:ButtonHelper.CornerRadius"
+                    Value="15"/>
+            <Setter Property="pu:ButtonHelper.ClickStyle"
+                    Value="Sink"/>
+        </DataTrigger>
+    </Style.Triggers>
+</Style>
+```
+
+再举一个CheckBox的例子：  
+
+```
+<Style TargetType="CheckBox"
+       BasedOn="{StaticResource {x:Type CheckBox}}">
+    <Setter Property="pu:CheckBoxHelper.CheckBoxStyle" 
+            Value="Switch"/>
+    <Style.Triggers>
+        <DataTrigger Binding="{Binding Path=(pu:CheckBoxHelper.CheckBoxStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+                    Value="Switch">
+            <Setter Property="pu:CheckBoxHelper.BoxHeight"
+                    Value="30"/>
+            <Setter Property="pu:CheckBoxHelper.BoxWidth"
+                    Value="45"/>
+        </DataTrigger>
+    </Style.Triggers>
+</Style>
+```
+
