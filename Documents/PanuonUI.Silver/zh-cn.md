@@ -829,7 +829,19 @@ MessageBoxXConfigurations中的属性：
 
 Tips：  
 Q: MessageBoxXConfigurations属性和configKey参数该如何使用？   
-A: MessageBoxXConfigurations属性提供了一个用于储存样式的字典。你可以在当前AppDomain内的任意位置向其中加入新样式，并在另一处代码中通过该样式的唯一key使用该样式。  
+A: MessageBoxXConfigurations属性提供了一个用于储存样式的字典。你可以在当前AppDomain内的任意位置向其中加入新样式，并在另一处代码中通过该样式的唯一key使用该样式。示例：  
+
+```
+MessageBoxX.MessageBoxXConfigurations.Add("WarningTheme", new Panuon.UI.Silver.Core.MessageBoxXConfigurations()
+{
+    MessageBoxIcon = MessageBoxIcon.Warning,
+});
+
+//Call this method in another class
+ MessageBoxX.Show("Warning !", "Warning", configKey: "WarningTheme");
+
+```
+
 
 ### PendingBox 等待框
 
@@ -875,8 +887,8 @@ PendingBoxConfigurations中的属性：
 | PendingBoxStyle | PendingBoxStyle | Standard[/Classic] | 设置等待框的基本样式。 |
 | LoadingStyle | LoadingStyle | Ring2[/Standard/Wave/Ring/Classic] | 设置等待框的等待控件样式。 |
 | ButtonBrush | Brush | #55CEF1 | 设置等待框的按钮颜色。 |
-| LoadingBackground | Brush | Transparent | 设置等待框的最小高度。 |
-| LoadingForeground | Brush | #3E3E3E | 设置等待框的最小宽度。 |
+| LoadingBackground | Brush | Transparent | 设置等待框中等待控件的背景色。 |
+| LoadingForeground | Brush | #3E3E3E | 设置等待框中等待控件的前景色。 |
 | MaxContentHeight | Double | 100 | 设置等待框的文本区域最大高度。超过此高度时，文本区域内将显示滚动条。 |
 | MaxContentWidth | Double | 300 | 设置等待框的文本区域最大宽度。超过此宽度时，文本将自动换行。 |
 | FontSize | Double | 16 | 设置等待框的文字大小。 |
@@ -884,15 +896,20 @@ PendingBoxConfigurations中的属性：
 | Topmost | Boolean | True | 设置等待框是否显示在所有窗体的最顶端。 |
 | WindowStartupLocation | WindowStartupLocation | CenterScreen[/Manual/CenterOwner] | 设置等待框的启动位置。 |
 | InteractOwnerMask | Boolean | True | 设置等待框是否对父窗体的遮罩层产生交互（父窗体必须为WindowX类型）。若此值为True，等待框将在启动时显示父窗体的遮罩层，并在退出时关闭父窗体的遮罩层。 |
-| YesButton | String | "Yes"("是 的") | 设置等待框“确定”按钮的文本内容。 |
-| NoButton | String | "No"("不") | 设置等待框“否”按钮的文本内容。 |
-| OKButton | String | "OK"("好 的") | 设置等待框“好的”按钮的文本内容。 |
 | CancelButton | String | "Cancel"("取 消") | 设置等待框“取消”按钮的文本内容。 |
-| ReverseButtonSequence | Boolean | False | 设置是否反转等待框的按钮顺序。 |
 
 Tips：  
 Q: PendingBoxXConfigurations属性和configKey参数该如何使用？   
-A: PendingBoxXConfigurations属性提供了一个用于储存样式的字典。你可以在当前AppDomain内的任意位置向其中加入新样式，并在另一处代码中通过该样式的唯一key使用该样式。  
+A: PendingBoxXConfigurations属性提供了一个用于储存样式的字典。你可以在当前AppDomain内的任意位置向其中加入新样式，并在另一处代码中通过该样式的唯一key使用该样式。示例：  
+
+```
+PendingBox.PendingBoxConfigurations.Add("ClassicTheme", new Panuon.UI.Silver.Core.PendingBoxConfigurations()
+{
+    PendingBoxStyle = PendingBoxStyle.Classic,
+});
+
+PendingBox.Show("Classic !", "Classic", configKey: "ClassicTheme");
+```
 
 ## 常见问题：
 
