@@ -385,6 +385,7 @@ ComboBoxHelper 中的附加属性：
 | IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉单选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
 | SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉单选框中搜索框的水印。 |
 | SearchText | String | Null | 获取或设置下拉单选框中搜索框的文本。 |
+| BindToEnum | Enum | Null | 获取或设置下拉单选框的枚举绑定目标，此属性可以帮助用户根据枚举类型快速生成一个下拉框。默认情况下，枚举项本身的内容将作为显示名称，而你也可以通过Description特性标签来指定其显示名称。对于使用该属性的ComboBox，其SelectedItem属性为一个匿名对象，而SelectedValue属性则为用户选定的枚举内容（可以双向绑定）。示例见下方的QA。 |
 
 ComboBoxHelper 中的事件：  
 | 事件名称 | 事件参数 | 事件描述 | 
@@ -394,7 +395,29 @@ ComboBoxHelper 中的事件：
 Tips：  
 Q: 在搜索框中输入了文字，但是没有搜索效果？   
 A: PanuonUI不会自动执行搜索操作（因为在启用虚拟化场景下无法获取到下拉框的所有子项）。必须对SearchTextChanged添加处理方法，以控制子项的显隐。  
+Q: BindToEnum属性的使用方法？
+A: 以下示例将生成一个具有三个子项的ComboBox（UserLanguage是ViewModel中一个Language枚举类型的属性）:  
+```
+//Code in c#
+namespace MyNamespace
+{
+    public enum Language
+    {
+        [Description("中文")]
+        Chinese,
+        English,
+        [Description("日本語")]
+        Japanese,
+    }
+}
 
+<!--Code in Xaml-->
+<... xmlns:my="clr-namespace:MyNamespace"
+     ...>
+     <ComboBox pu:ComboBoxHelper.BindToEnum="{x:Static my:Language.Chinese}"
+               SelectedValue="{Binding UserLanguage, Mode=TwoWay}" />
+</...>
+```
 ***
 
 ### MultiComboBox 下拉多选框
