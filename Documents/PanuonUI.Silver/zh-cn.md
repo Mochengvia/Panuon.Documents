@@ -396,7 +396,7 @@ ComboBoxHelper 中的事件：
 Tips：  
 Q: 在搜索框中输入了文字，但是没有搜索效果？   
 A: PanuonUI不会自动执行搜索操作（因为在启用虚拟化场景下无法获取到下拉框的所有子项）。必须对SearchTextChanged添加处理方法，以控制子项的显隐。  
-Q: BindToEnum属性的使用方法？
+Q: BindToEnum属性的使用方法？  
 A: 以下示例将生成一个具有三个子项的ComboBox（UserLanguage是ViewModel中一个Language枚举类型的属性）:  
 ```
 //Code in c#
