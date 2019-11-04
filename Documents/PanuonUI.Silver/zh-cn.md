@@ -388,6 +388,7 @@ ComboBoxHelper 中的附加属性：
 | BindToEnum | Enum | Null | 获取或设置下拉单选框的枚举绑定目标，此属性可以帮助用户根据枚举类型快速生成一个下拉框。默认情况下，枚举项本身的内容将作为显示名称，而你也可以通过Description特性标签来指定其显示名称。对于使用该属性的ComboBox，其SelectedItem属性为一个匿名对象，而SelectedValue属性则为用户选定的枚举内容（可以双向绑定）。示例见下方的QA。 |
 
 ComboBoxHelper 中的事件：  
+
 | 事件名称 | 事件参数 | 事件描述 | 
 | - | - | - |
 | SearchTextChanged | SearchTextChangedEventHandler | 指示搜索框中的文字发生了变化。 |
