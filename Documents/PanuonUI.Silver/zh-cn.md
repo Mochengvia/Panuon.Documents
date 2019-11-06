@@ -20,6 +20,7 @@
     - [ProgressBar 进度条](#progressbar-进度条)
     - [TabControl 选项卡](#tabcontrol-选项卡)
     - [TreeView 树视图](#treeview-树视图)
+    - [ScrollViewer 滚动视图](#scrollviewer-滚动视图)
     - [Slider 滑块](#slider-滑块)
     - [DataGrid 数据表](#datagrid-数据表)
     - [Loading 等待](#loading-等待)
@@ -233,7 +234,7 @@ TextBoxHelper 中的附加属性：
 | - | - | - | - |
 | FocusedBorderBrush | Brush | Null | 获取或设置文本框获得焦点时的边框颜色。若此值为Null，文本框获得焦点时边框颜色不会发生任何变化。 |
 | FocusedShadowColor | Color? | #888888 | 获取或设置文本框获得焦点时的阴影颜色。若此值为Null，文本框获得焦点时不会出现阴影。 |
-| Watermark | Brush | Null | 获取或设置文本框的水印(PlaceHolder)。 |
+| Watermark | String | Null | 获取或设置文本框的水印(PlaceHolder)。 |
 | Icon | Object | Null | 获取或设置文本框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置文本框的圆角大小。 |
 | Header | Object | Null | 获取或设置显示在文本框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-输入框 的组合。 |
@@ -269,7 +270,7 @@ PasswordBoxHelper 中的附加属性：
 | Password | String | Null | 获取或设置密码框的密码，该属性支持绑定。 |
 | FocusedBorderBrush | Brush | Null | 获取或设置密码框获得焦点时的边框颜色。若此值为Null，密码框获得焦点时边框颜色不会发生任何变化。 |
 | FocusedShadowColor | Color? | #888888 | 获取或设置密码框获得焦点时的阴影颜色。若此值为Null，密码框获得焦点时不会出现阴影。 |
-| Watermark | Brush | Null | 获取或设置密码框的水印(PlaceHolder)。 |
+| Watermark | String | Null | 获取或设置密码框的水印(PlaceHolder)。 |
 | Icon | Object | Null | 获取或设置密码框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置密码框的圆角大小。 |
 | Header | Object | Null | 获取或设置显示在密码框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-密码框 的组合。 |
@@ -600,6 +601,29 @@ TreeViewHelper 中的附加属性：
 | SelectedForeground | Brush | Null | 获取或设置树视图子项被选中时的前景色。 |
 | ItemHeight | Double | 40 | 获取或设置树视图子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
 | ItemIcon | Object | 40 | 获取或设置树视图子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+
+***
+
+
+### ScrollViewer 滚动视图
+示例：  
+```
+    <ScrollViewer Height="200"
+                  Width="200"
+                  pu:ScrollViewerHelper.ScrollBarThickness="10"
+                  pu:ScrollViewerHelper.ScrollBarCornerRadius="1">
+    </ScrollViewer>
+```
+请注意，ScrollViewHelper的ScrollBarThickness和ScrollBarCornerRadius属性可以修改带有滚动视图的控件样式，例如TreeView、ListBox、DataGrid等。
+
+ScrollViewHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| TrackBrush | Brush |  | 获取或设置滚动视图上滚动条的轨道颜色。 |
+| ThumbBrush | Brush |  | 获取或设置滚动视图上滚动条的滑块颜色。 |
+| ScrollBarCornerRadius | CornerRadius |  | 获取或设置滚动视图上滚动条的圆角大小。 |
+| ScrollBarThickness | Double |  | 获取或设置滚动视图上滚动条的粗细。 |
 
 ***
 
