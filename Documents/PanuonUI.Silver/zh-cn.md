@@ -856,9 +856,9 @@ GroupBoxHelper 中的附加属性：
 示例：  
 ```
     <pu:AnimateWrapPanel Width="200" 
-    					 ItemHeight="30"
-      					 VerticalSpacing="10"
-      					 HorizontalSpacing="10">
+    			 ItemHeight="30"
+      			 VerticalSpacing="10"
+      			 HorizontalSpacing="10">
     	<Button Content="1"/>
     	<Button Content="2"/>
     	<Button Content="3"/>
@@ -881,20 +881,20 @@ AnimateWrapPanel中的依赖属性：
 ```
 <pu:Timeline Width="200">
 	<pu:TimelineItem Header="Title 1"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 	<pu:TimelineItem Header="Title 2"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 	<pu:TimelineItem Header="Title 3"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 </pu:Timeline>
 
 <pu:Timeline Width="200"
-			 ItemsSource="{Binding TimelineItems}"
-    		 DisplayMemberPath="Content"
-    		 HeaderMemberPath="Header" />
+	     ItemsSource="{Binding TimelineItems}"
+    	     DisplayMemberPath="Content"
+    	     HeaderMemberPath="Header" />
 
 <pu:Timeline Width="200"
-      		 ItemsSource="{Binding TimelineItems}">
+      	     ItemsSource="{Binding TimelineItems}">
     <pu:Timeline.ItemContainerStyle>
     	<Style TargetType="{x:Type pu:TimelineItem}">
         </Style>
