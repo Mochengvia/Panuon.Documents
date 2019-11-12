@@ -2,8 +2,40 @@
 
 # 目录
 
-[TOC]
+-- [欢迎使用](#欢迎使用)
 
+- [使用指引](#使用指引)
+    - [STEP 1. 将PanuonUI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)
+    - [STEP 2. 添加资源字典](#step-2-添加资源字典)
+    - [STEP 3. 在代码中使用PanuonUI.Silver](#step-3-在代码中使用panuonuisilver)
+- [FontAwesome字体](#fontawesome字体)
+- [控件库](#控件库)
+    - [WindowX 窗体X](#windowx-窗体x)
+    - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)
+    - [TextBlock 文本控件](#textblock-文本控件)
+    - [TextBox 文本输入框](#textbox-文本输入框)
+    - [PasswordBox 密码输入框](#passwordbox-密码输入框)
+    - [CheckBox 多选框](#checkbox-多选框)
+    - [RadioButton 单选按钮](#radiobutton-单选按钮)
+    - [ComboBox 下拉单选框](#combobox-下拉单选框)
+    - [MultiComboBox 下拉多选框](#multicombobox-下拉多选框)
+    - [ProgressBar 进度条](#progressbar-进度条)
+    - [TabControl 选项卡](#tabcontrol-选项卡)
+    - [TreeView 树视图](#treeview-树视图)
+    - [ScrollViewer 滚动视图](#scrollviewer-滚动视图)
+    - [Slider 滑块](#slider-滑块)
+    - [DataGrid 数据表](#datagrid-数据表)
+    - [Loading 等待](#loading-等待)
+    - [Menu 菜单](#menu-菜单)
+    - [ContextMenu 上下文菜单](#contextmenu-上下文菜单)
+    - [Expander 折叠面板](#expander-折叠面板)
+    - [GroupBox 组面板](#groupbox-组面板)
+    - [AnimateWrapPanel 动画换行面板](#animatewrappanel-动画换行面板)
+    - [Timeline / TimelineItem 时间轴](#timeline-时间轴)
+    - [TagControl / TagItem 标签板](#tagcontrol-标签板)
+    - [MessageBoxX 消息框](#messageboxx-消息框)
+    - [PendingBox 等待框](#pendingbox-等待框)
+- [常见问题](#常见问题)
 ***
 ## 欢迎使用
 
@@ -129,25 +161,6 @@ Q：为什么最小化按钮（/最大化按钮/关闭按钮）的样式不起�
 A：如果按钮的样式不是Standard，需要将所有的Setter放置在ButtonStyle的DataTrigger中。如果不明白，请参考UIBrowser/Resources/Styles.xaml中NeteaseMusicWindow样式的写法。  
 
 ***
-### TextBlock 文本
-代码示例:  
-
-```
-<pu:TextBlock Text="Thanks for using panuon ui."
-			  MatchText="panuon" 
-			  MatchedForeground="#FFC4C4"/>
-```
-TextBlock是一个派生自UserControl的用户控件。该控件可高亮指定文字，或将超出显示边界的文本显示为省略号，或指定文本。该控件没有实现原生TextBlock中的Inlines属性。  
-
-与原生TextBlock相比，TextBlock中的额外依赖属性：  
-
-| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
-| - | - | - | - |
-| MatchText | String | Null | 获取或设置文本控件中要高亮的文字。该文本只有存在于Text属性中时，才会被高亮显示。文字匹配为全字匹配，且不忽略大小写。 |
-| MatchedForeground | Brush | #FF3C3C | 获取或设置文本控件中高亮文字的前景色。 |
-| MatchRule | MatchRule | First[/All] | 获取或设置文本控件的匹配规则。默认情况下，只有首个被匹配到的文本会被高亮。All规则下，所有匹配到的文本都会被高亮。 |
-| AutoAdaptation | Boolean | false | 获取或设置文本是否自适应文本控件的大小。当文本超出可视范围时，超出范围的部分将用ExceededTextFiller属性的值代替。 |
-| ExceededTextFiller | String | "..." | 获取或设置当文本超出可视范围时，补充到裁切文本之后的内容。 |
 
 ### Button 按钮 / RepeatButton 重复按钮
 代码示例:  
@@ -200,6 +213,29 @@ A: 添加以下样式：
 </Style>
 ```
 除了ButtonStyle外，其他的附加属性都应放在DataTrigger中。  
+
+***
+
+### TextBlock 文本
+代码示例:  
+
+```
+<pu:TextBlock Text="Thanks for using panuon ui."
+			  MatchText="panuon" 
+			  MatchedForeground="#FFC4C4"/>
+```
+
+TextBlock是一个派生自UserControl的用户控件。该控件可高亮指定文字，或将超出显示边界的文本显示为省略号，或指定文本。请注意，该控件没有Inlines属性，不能向其中添加<Run>。  
+
+与原生TextBlock相比，TextBlock中的额外依赖属性：  
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| MatchText | String | Null | 获取或设置文本控件中要高亮的文字。该文本只有存在于Text属性中时，才会被高亮显示。文字匹配为全字匹配，且不忽略大小写。 |
+| MatchedForeground | Brush | #FF3C3C | 获取或设置文本控件中高亮文字的前景色。 |
+| MatchRule | MatchRule | First[/All] | 获取或设置文本控件的匹配规则。默认情况下，只有首个被匹配到的文本会被高亮。All规则下，所有匹配到的文本都会被高亮。 |
+| AutoAdaptation | Boolean | false | 获取或设置文本是否自适应文本控件的大小。当文本超出可视范围时，超出范围的部分将用ExceededTextFiller属性的值代替。 |
+| ExceededTextFiller | String | "..." | 获取或设置当文本超出可视范围时，补充到裁切文本之后的内容。 |
 
 ***
 
@@ -840,7 +876,7 @@ AnimateWrapPanel中的依赖属性：
 | VerticalSpacing | Double | 0 | 获取或设置动画换行面板子内容的垂直间距。 |
 | HorizontalSpacing | Double | 0 | 获取或设置动画换行面板子内容的水平间距。 |
 
-### Timeline/TimelineItem 时间轴
+### Timeline 时间轴
 示例：  
 ```
 <pu:Timeline Width="200">
@@ -912,7 +948,7 @@ TimelineItem中的依赖属性：
 | ToggleFill | Brush | #FFFFFF | 获取或设置时间轴项圆形符号的填充颜色。 |
 | ToggleShadowColor | Color? | Null | 获取或设置时间轴项圆形符号的阴影颜色。若此值为Null，圆形符号的阴影效果将被禁用。 |
 
-### TagControl/TagItem 标签板
+### TagControl 标签板
 示例：  
 ```
 <pu:TagControl Width="200"
@@ -1125,7 +1161,7 @@ PendingBox.Show("Classic !", "Classic", configKey: "ClassicTheme");
 ### 对于Button、CheckBox等控件，即使进行了上述操作，一些属性值还是没有生效。
 对于有Style枚举属性的控件（例如Button的ButtonStyle，CheckBox的CheckBoxStyle），当这些属性值发生变化时，PanuonUI.Silver可能会将不同于默认样式的属性值应用到附加属性或依赖属性上。该操作发生在Style的Setters之后，因此你设置的属性值会被其覆盖。最佳的方法是，将属性设置放在DataTrigger中。以Button为例，样式如下：  
 
-```
+```xml
 <Style TargetType="Button"
        BasedOn="{StaticResource {x:Type Button}}">
     <Setter Property="pu:ButtonHelper.ButtonStyle" 
