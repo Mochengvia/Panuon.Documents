@@ -2,36 +2,7 @@
 
 # 目录
 
-- [欢迎使用](#欢迎使用)
-- [使用指引](#使用指引)
-    - [STEP 1. 将PanuonUI.Silver引入到你的项目中](#step-1-将panuonuisilver引入到你的项目中)
-    - [STEP 2. 添加资源字典](#step-2-添加资源字典)
-    - [STEP 3. 在代码中使用PanuonUI.Silver](#step-3-在代码中使用panuonuisilver)
-- [FontAwesome字体](#fontawesome字体)
-- [控件库](#控件库)
-    - [WindowX 窗体X](#windowx-窗体x)
-    - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)
-    - [TextBox 文本输入框](#textbox-文本输入框)
-    - [PasswordBox 密码输入框](#passwordbox-密码输入框)
-    - [CheckBox 多选框](#checkbox-多选框)
-    - [RadioButton 单选按钮](#radiobutton-单选按钮)
-    - [ComboBox 下拉单选框](#combobox-下拉单选框)
-    - [MultiComboBox 下拉多选框](#multicombobox-下拉多选框)
-    - [ProgressBar 进度条](#progressbar-进度条)
-    - [TabControl 选项卡](#tabcontrol-选项卡)
-    - [TreeView 树视图](#treeview-树视图)
-    - [ScrollViewer 滚动视图](#scrollviewer-滚动视图)
-    - [Slider 滑块](#slider-滑块)
-    - [DataGrid 数据表](#datagrid-数据表)
-    - [Loading 等待](#loading-等待)
-    - [Menu 菜单](#menu-菜单)
-    - [ContextMenu 上下文菜单](#contextmenu-上下文菜单)
-    - [Expander 折叠面板](#expander-折叠面板)
-    - [GroupBox 组面板](#groupbox-组面板)
-    - [MessageBoxX 消息框](#messageboxx-消息框)
-    - [PendingBox 等待框](#pendingbox-等待框)
-- [常见问题](#常见问题)
-
+[TOC]
 
 ***
 ## 欢迎使用
@@ -41,7 +12,7 @@ PanuonUI.Silver不像DevExpress等控件库那样，通过简单的拖拖拽拽�
 要最大化利用PanuonUI.Silver控件库的优势，你需要具有一定的审美能力，或者拥有一张现成的设计图。    
 
 ## 使用指引  
-  
+
 ### STEP 1. 将PanuonUI.Silver引入到你的项目中  
 1. 以Nuget形式    
 右击你的个人项目，选择“管理Nuget程序包”。在包管理器页面中，点击“浏览”选项，然后在搜索框中键入“Panuon.UI.Silver”。选择最顶端的正确项目，并在右侧详情页中点击“安装”，等待安装完成即可。  
@@ -100,7 +71,7 @@ PanuonUI.Silver中集成了FontAwesome（v4.7）字体。你可以在你的项�
 ```
 <TextBlock  FontFamily="{StaticResource FontAwesome}"
             Text="&#xf1b2;">
-```  
+```
 
 Icon代码可以在 http://www.fontawesome.com.cn/cheatsheet/ 中查找和复制。    
 
@@ -148,7 +119,7 @@ WindowXCaption中的附加属性：
 | MaximizeButtonStyle | Style | - | 获取或设置最大化按钮的样式。 |
 | CloseButtonStyle | Style | - | 获取或设置关闭按钮的样式。 |
 | DisableCloseButton | Boolean | False | 获取或设置是否禁用关闭按钮。若同时在WindowX中启用了DisableForceClosing属性，用户将只能通过管理员权限杀死进程的方式来强制关闭程序。 |
-| HideBasicButtons | Boolean | False | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，这些按钮的Visibility将设置为Collapsed。 |  
+| HideBasicButtons | Boolean | False | 获取或设置是否隐藏所有的基本按钮（最小化、最大化、关闭）。设置为True时，这些按钮的Visibility将设置为Collapsed。 |
 
 Tips：  
 Q: 如何完全隐藏窗体的标题栏？  
@@ -158,9 +129,28 @@ Q：为什么最小化按钮（/最大化按钮/关闭按钮）的样式不起�
 A：如果按钮的样式不是Standard，需要将所有的Setter放置在ButtonStyle的DataTrigger中。如果不明白，请参考UIBrowser/Resources/Styles.xaml中NeteaseMusicWindow样式的写法。  
 
 ***
+### TextBlock 文本
+代码示例:  
+
+```
+<pu:TextBlock Text="Thanks for using panuon ui."
+			  MatchText="panuon" 
+			  MatchedForeground="#FFC4C4"/>
+```
+TextBlock是一个派生自UserControl的用户控件。该控件可高亮指定文字，或将超出显示边界的文本显示为省略号，或指定文本。该控件没有实现原生TextBlock中的Inlines属性。  
+
+与原生TextBlock相比，TextBlock中的额外依赖属性：  
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| MatchText | String | Null | 获取或设置文本控件中要高亮的文字。该文本只有存在于Text属性中时，才会被高亮显示。文字匹配为全字匹配，且不忽略大小写。 |
+| MatchedForeground | Brush | #FF3C3C | 获取或设置文本控件中高亮文字的前景色。 |
+| MatchRule | MatchRule | First[/All] | 获取或设置文本控件的匹配规则。默认情况下，只有首个被匹配到的文本会被高亮。All规则下，所有匹配到的文本都会被高亮。 |
+| AutoAdaptation | Boolean | false | 获取或设置文本是否自适应文本控件的大小。当文本超出可视范围时，超出范围的部分将用ExceededTextFiller属性的值代替。 |
+| ExceededTextFiller | String | "..." | 获取或设置当文本超出可视范围时，补充到裁切文本之后的内容。 |
 
 ### Button 按钮 / RepeatButton 重复按钮
-代码示例：  
+代码示例:  
 ```
     <Button Height="30"
             Width="200"
@@ -188,7 +178,7 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置按钮的圆角大小。 |
 | IsWaiting | Boolean | False | 获取或设置按钮是否处于等待模式。在等待模式时，按钮将处于禁用状态，并显示出一个Loading控件和WaitingContent的内容。 |
 | WaitingContent | Object | "Please wait..." | 获取或设置按钮在IsWaiting为True时显示的内容。 |
-| Icon | Object | Null | 获取或设置按钮的Icon，该Icon将显示在Content之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置按钮的Icon，该Icon将显示在Content之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 
 Tips :  
 Q： 如何将一个Outline样式、圆角、点击时下沉的按钮样式应用到所有的控件？  
@@ -235,7 +225,7 @@ TextBoxHelper 中的附加属性：
 | FocusedBorderBrush | Brush | Null | 获取或设置文本框获得焦点时的边框颜色。若此值为Null，文本框获得焦点时边框颜色不会发生任何变化。 |
 | FocusedShadowColor | Color? | #888888 | 获取或设置文本框获得焦点时的阴影颜色。若此值为Null，文本框获得焦点时不会出现阴影。 |
 | Watermark | String | Null | 获取或设置文本框的水印(PlaceHolder)。 |
-| Icon | Object | Null | 获取或设置文本框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置文本框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置文本框的圆角大小。 |
 | Header | Object | Null | 获取或设置显示在文本框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-输入框 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
@@ -271,7 +261,7 @@ PasswordBoxHelper 中的附加属性：
 | FocusedBorderBrush | Brush | Null | 获取或设置密码框获得焦点时的边框颜色。若此值为Null，密码框获得焦点时边框颜色不会发生任何变化。 |
 | FocusedShadowColor | Color? | #888888 | 获取或设置密码框获得焦点时的阴影颜色。若此值为Null，密码框获得焦点时不会出现阴影。 |
 | Watermark | String | Null | 获取或设置密码框的水印(PlaceHolder)。 |
-| Icon | Object | Null | 获取或设置密码框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置密码框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置密码框的圆角大小。 |
 | Header | Object | Null | 获取或设置显示在密码框前的内容（通常是描述性文字）。该属性用于辅助用户快速生成一个 描述-密码框 的组合。 |
 | HeaderWidth | String | "Auto" | 获取或设置Header的宽度。该属性支持GridLength的所有文本，例如"Auto"(自动)、‘"2*"(比例)、"50"(像素值)等。 |
@@ -280,7 +270,6 @@ PasswordBoxHelper 中的附加属性：
 Tips：  
 Q: 如何禁用获得焦点时的外阴影效果？   
 A: 将pu:PasswordBoxHelper.FocusedShadowColor设置为Null或{x:Null}即可。  
-
 
 ***
 
@@ -381,7 +370,7 @@ ComboBoxHelper 中的附加属性：
 | SelectedForeground | Brush |  | 获取或设置下拉单选框子项被选中时的前景颜色。 |
 | SelectedBackground | Brush |  | 获取或设置下拉单选框子项被选中时的背景颜色。 |
 | CornerRadius | CornerRadius |  | 获取或设置下拉单选框的圆角大小。 |
-| Icon | Object | Null | 获取或设置下拉单选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置下拉单选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 | Watermark | String | Null | 获取或设置下拉单选框的水印（PlaceHolder）。 |
 | IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉单选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
 | SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉单选框中搜索框的水印。 |
@@ -390,7 +379,7 @@ ComboBoxHelper 中的附加属性：
 
 ComboBoxHelper 中的事件：  
 
-| 事件名称 | 事件参数 | 事件描述 | 
+| 事件名称 | 事件参数 | 事件描述 |
 | - | - | - |
 | SearchTextChanged | SearchTextChangedEventHandler | 指示搜索框中的文字发生了变化。 |
 
@@ -466,7 +455,7 @@ MultiComboBox 中的额外依赖属性：
 | ItemPadding | Thickness | 5,0,0,0 | 获取或设置下拉多选框子项的统一内容间距。 |
 | ShadowColor | Color | #888888 | 获取或设置下拉多选框的阴影颜色。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置下拉多选框的圆角大小。 |
-| Icon | Object | Null | 获取或设置下拉多选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置下拉多选框的Icon，该Icon将显示在Text之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 | Watermark | String | Null | 获取或设置下拉多选框的水印（PlaceHolder）。 |
 | IsSearchTextBoxVisible | Boolean | False | 获取或设置是否在下拉多选框中显示搜索框。必须对SearchTextChanged事件添加处理，才能达到搜索效果。 |
 | SearchTextBoxWatermark | String | "Search ..." | 获取或设置下拉多选框中搜索框的水印。 |
@@ -481,7 +470,7 @@ MultiComboBox 中的额外依赖属性：
 | CheckBoxStyle | Style | - | 获取或设置下拉多选框中单选框的样式。 |
 
 ComboBoxHelper 中的事件：  
-| 事件名称 | 事件参数 | 事件描述 | 
+| 事件名称 | 事件参数 | 事件描述 |
 | - | - | - |
 | SearchTextChanged | SearchTextChangedEventHandler | 指示搜索框中的文字发生了变化。 |
 
@@ -550,14 +539,14 @@ TabControlHelper 中的附加属性：
 | DisableScrollButton | Boolean | False | 获取或设置是否禁止显示左右两侧的滚动按钮，即使选项卡子项长度（或宽度）已经超出了选项卡的最大宽度（或最大高度）。 |
 | ItemsAlignment | ItemsAlignment | LeftOrTop[/Center] | 获取或设置选项卡子项容器在选项卡中的位置。 |
 | CanRemove | Boolean | False | 获取或设置是否允许移除选项卡。需要注意：对于使用ItemsSource属性绑定的方式，用户点击叉号后，该项目并不会从源数据集合中被移除，你需要对Removed事件进行额外处理。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
-| ItemIcon | Object | Null | 获取或设置选项卡子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemIcon | Object | Null | 获取或设置选项卡子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 | ItemCornerRadius | CornerRadius | 0,0,0,0 | 获取或设置选项卡子项的圆角大小。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 | ItemBackground | Brush | Transparent | 获取或设置选项卡子项的统一背景色。 |
 | HeaderPanelBackground | Brush | Null | 获取或设置选项卡的标题栏背景色。 |
 
 
 TabControlHelper 中的事件：  
-| 事件名称 | 事件参数 | 事件描述 | 
+| 事件名称 | 事件参数 | 事件描述 |
 | - | - | - |
 | Removed | TabItemRemovedEventArgs | 指示某个TabItem已经从视图中移除。 |
 
@@ -600,7 +589,7 @@ TreeViewHelper 中的附加属性：
 | SelectedBackground | Brush | False | 获取或设置树视图子项被选中时的背景色。 |
 | SelectedForeground | Brush | Null | 获取或设置树视图子项被选中时的前景色。 |
 | ItemHeight | Double | 40 | 获取或设置树视图子项的统一高度。若要使用自动高度，请将值设置为NaN。 |
-| ItemIcon | Object | 40 | 获取或设置树视图子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
+| ItemIcon | Object | 40 | 获取或设置树视图子项的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。此属性既可以对TabControl控件生效，也可以对TabItem控件生效。 |
 
 ***
 
@@ -649,7 +638,7 @@ SliderHelper 中的附加属性：
 | ThemeBrush | Brush |  | 获取或设置滑块已滑过区域的颜色。未滑过的区域颜色由Background属性控制。 |
 | TrackThickness | Double | 3 | 获取或设置轨道的粗细。 |
 | ThumbSize | Double | 16 | 获取或设置圆形纽扣的大小。 |
-| IsTickValueVisible | Boolean | False | 获取或设置是否显示滑块的实时值。 | 
+| IsTickValueVisible | Boolean | False | 获取或设置是否显示滑块的实时值。 |
 
 ### DataGrid 数据表
 示例：  
@@ -784,28 +773,6 @@ ContextMenuHelper中的附加属性：
 
 ***
 
-### GroupBox 组面板
-示例：  
-```
-    <GroupBox Height="30"
-            Width="200"
-            Header="GroupBox"
-            pu:GroupBoxHelper.HeaderPadding="5,10" />
-```
-
-GroupBoxHelper 中的附加属性： 
-
-| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
-| - | - | - | - |
-| Icon | Object | Null | 获取或设置组面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
-| CornerRadius | CornerRadius | 0 | 获取或设置组面板的圆角大小。 |
-| HeaderPadding | Thickness | 5,0,0,0 | 获取或设置组面板的标题间距。 |
-| HeaderForeground | Brush | False | 获取或设置组面板的标题前景色。 | 
-| HeaderBackground | Brush | False | 获取或设置组面板的标题背景色。 | 
-| ShadowColor | Color? | Null | 获取或设置组面板的阴影颜色。若此值为Null，阴影效果将被禁用。 | 
-| ExtendControl | UIElement | Null | 获取或设置组面板的额外控件。该控件将显示在Header的右侧。 |
-| IsSplitLineVisible | Boolean | False | 获取或设置是否在组面板的Header与Content之间显示一道分割线。该分割线的颜色受到BorderBrush属性的影响。 |
-
 ### Expander 折叠面板
 示例：  
 ```
@@ -820,13 +787,197 @@ ExpanderHelper 中的附加属性：
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | ExpanderStyle | ExpanderStyle | Standard[/Classic/] | 获取或设置折叠面板的基本样式。 |
-| Icon | Object | Null | 获取或设置折叠面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。 |
+| Icon | Object | Null | 获取或设置折叠面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
 | CornerRadius | CornerRadius | 0 | 获取或设置折叠面板的圆角大小。 |
 | HeaderPadding | Thickness | 5,0,0,0 | 获取或设置折叠面板的标题间距。 |
-| HeaderForeground | Brush | False | 获取或设置折叠面板的标题前景色。 | 
-| HeaderBackground | Brush | False | 获取或设置折叠面板的标题背景色。 | 
-| ShadowColor | Color? | Null | 获取或设置折叠面板的阴影颜色。若此值为Null，阴影效果将被禁用。 | 
+| HeaderForeground | Brush | False | 获取或设置折叠面板的标题前景色。 |
+| HeaderBackground | Brush | False | 获取或设置折叠面板的标题背景色。 |
+| ShadowColor | Color? | Null | 获取或设置折叠面板的阴影颜色。若此值为Null，阴影效果将被禁用。 |
 
+### GroupBox 组面板
+示例：  
+```
+    <GroupBox Height="30"
+            Width="200"
+            Header="GroupBox"
+            pu:GroupBoxHelper.HeaderPadding="5,10" />
+```
+
+GroupBoxHelper 中的附加属性： 
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| Icon | Object | Null | 获取或设置组面板的Icon，该Icon将显示在Header之前。Icon可以是FontAwesome字体、图片Uri字符串或任何控件。其字体和大小可以通过pu:IconHelper调整。 |
+| CornerRadius | CornerRadius | 0 | 获取或设置组面板的圆角大小。 |
+| HeaderPadding | Thickness | 5,0,0,0 | 获取或设置组面板的标题间距。 |
+| HeaderForeground | Brush | False | 获取或设置组面板的标题前景色。 |
+| HeaderBackground | Brush | False | 获取或设置组面板的标题背景色。 |
+| ShadowColor | Color? | Null | 获取或设置组面板的阴影颜色。若此值为Null，阴影效果将被禁用。 |
+| ExtendControl | UIElement | Null | 获取或设置组面板的额外控件。该控件将显示在Header的右侧。 |
+| IsSplitLineVisible | Boolean | False | 获取或设置是否在组面板的Header与Content之间显示一道分割线。该分割线的颜色受到BorderBrush属性的影响。 |
+
+### AnimateWrapPanel 动画换行面板
+示例：  
+```
+    <pu:AnimateWrapPanel Width="200" 
+    					 ItemHeight="30"
+      					 VerticalSpacing="10"
+      					 HorizontalSpacing="10">
+    	<Button Content="1"/>
+    	<Button Content="2"/>
+    	<Button Content="3"/>
+    </pu:AnimateWrapPanel>
+```
+该控件继承自Panel，并重新实现了WrapPanel控件中的Orientation、ItemHeight、ItemWidth属性。当其子内容发生变化时（例如移除和插入），将产生一个动画排列效果。  
+
+AnimateWrapPanel中的依赖属性：   
+
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| Orientation | Orientation | Horizontal | 获取或设置动画换行面板子内容的排列方向。 |
+| ItemHeight | Double | NaN | 获取或设置动画换行面板子内容的统一高度。 |
+| ItemWidth | Double | NaN | 获取或设置动画换行面板子内容的统一宽度。 |
+| VerticalSpacing | Double | 0 | 获取或设置动画换行面板子内容的垂直间距。 |
+| HorizontalSpacing | Double | 0 | 获取或设置动画换行面板子内容的水平间距。 |
+
+### Timeline/TimelineItem 时间轴
+示例：  
+```
+<pu:Timeline Width="200">
+	<pu:TimelineItem Header="Title 1"
+    				 Content="Put your text here." />
+	<pu:TimelineItem Header="Title 2"
+    				 Content="Put your text here." />
+	<pu:TimelineItem Header="Title 3"
+    				 Content="Put your text here." />
+</pu:Timeline>
+
+<pu:Timeline Width="200"
+			 ItemsSource="{Binding TimelineItems}"
+    		 DisplayMemberPath="Content"
+    		 HeaderMemberPath="Header" />
+
+<pu:Timeline Width="200"
+      		 ItemsSource="{Binding TimelineItems}">
+	<pu:Timeline.ItemContainerStyle>
+    	<Style TargetType="{x:Type pu:TimelineItem}">
+        </Style>
+    </pu:Timeline.ItemContainerStyle>
+    <pu:Timeline.HeaderTemplate>
+    	<DataTemplate>
+        	<TextBlock Text="{Binding Header}"
+                       FontWeight="Bold"/>
+            </DataTemplate>
+        </pu:Timeline.HeaderTemplate>
+    <pu:Timeline.ItemTemplate>
+    	<DataTemplate>
+              <TextBlock Text="{Binding Content}" />
+        </DataTemplate>
+    </pu:Timeline.ItemTemplate>
+</pu:Timeline>
+```
+Timeline使用VirtualizationStackPanel作为子项容器，默认启用了虚拟化，你可以使用HorizontalScrollBarVisibility和VerticalScrollBarVisibility属性来控制滚动条的显隐。请注意，若Timeline被放置在ScrollViewer控件中，或将ScrollViewer.CanContentScroll设置为False，该控件的虚拟化将失效。  
+
+Timeline中的依赖属性： 
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| TimelimeStripPlacement | TimelimeStripPlacement | Left[/Right/Top/Bottom] (From Timeline) | 获取或设置时间轴子项中时间轴的位置。 |
+| ItemLineBrush | Brush |  | 获取或设置时间轴子项时间线的统一颜色。 |
+| ItemLineThickness | double |  | 获取或设置时间轴子项时间线的统一粗细大小。 |
+| ItemLineMargin | Thickness |  | 获取或设置时间轴子项时间线的统一边距。 |
+| ItemToggleSize | Double | 20 | 获取或设置时间轴子项圆形符号的统一大小。 |
+| ItemToggleMargin | Thickness |  | 获取或设置时间轴子项圆形符号的统一间距。 |
+| ItemToggleStroke | Brush |  | 获取或设置时间轴子项的圆形符号的统一边框颜色。 |
+| ItemToggleStrokeThickness | Double |  | 获取或设置时间轴子项圆形符号的统一边框粗细。 |
+| ItemToggleFill | Brush | #FFFFFF | 获取或设置时间轴子项圆形符号的统一填充颜色。 |
+| ItemToggleShadowColor | Color? | Null | 获取或设置时间轴子项圆形符号的统一阴影颜色。若此值为Null，圆形符号的阴影效果将被禁用。 |
+| HeaderMemberPath | String | Nul | 获取或设置源对象上的值的路径，以用作时间轴标题的可视表示形式。 |
+| HeaderTemplate | DataTemplate | Null | 获取或设置用来显示每个间时轴子项的DataTemplate。 |
+| HeaderTemplateSelector | DataTemplateSelector | Null | 获取或设置用于选择用来显示每个时间轴子项标题模板的自定义逻辑。 |
+| HorizontalScrollBarVisibility | ScrollBarVisibility | Disabled | 获取或设置时间轴的水平滚动条显示状态。 |
+| VerticalScrollBarVisibility | ScrollBarVisibility | Auto | 获取或设置时间轴的垂直滚动条显示状态。 |
+
+TimelineItem中的依赖属性：  
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| Icon | Object | Null | 获取或设置时间轴项的图标，该图标将显示在圆形符号上。 |
+| Header | Object | Null | 获取或设置时间轴项的标题。 |
+| LineBrush | Brush |  | 获取或设置时间轴项时间线的颜色。 |
+| LineThickness | double |  | 获取或设置时间轴项时间线的粗细大小。 |
+| LineMargin | Thickness |  | 获取或设置时间轴项时间线的边距。 |
+| ToggleSize | Double | 20 | 获取或设置时间轴项圆形符号的大小。 |
+| ToggleMargin | Thickness |  | 获取或设置时间轴项圆形符号的间距。 |
+| ToggleStroke | Brush |  | 获取或设置时间轴项圆形符号的边框颜色。 |
+| ToggleStrokeThickness | Double |  | 获取或设置时间轴项圆形符号的边框粗细。 |
+| ToggleFill | Brush | #FFFFFF | 获取或设置时间轴项圆形符号的填充颜色。 |
+| ToggleShadowColor | Color? | Null | 获取或设置时间轴项圆形符号的阴影颜色。若此值为Null，圆形符号的阴影效果将被禁用。 |
+
+### TagControl/TagItem 标签板
+示例：  
+```
+<pu:TagControl Width="200"
+      		   Removing="TagControl_Removing"
+      		   Removed="TagControl_Removed">
+	<pu:TagItem Content="Admin" 
+				Removable="False"/>
+	<pu:TagItem Content="Jack" />
+	<pu:TagItem Content="White" />
+</pu:TagControl>
+
+<!--TagControl with alternation-->
+<pu:TagControl Width="200"
+      		   ItemsSource="{Binding Tags}"
+      		   DisplayMemberPath="DisplayName"
+      		   AlternationCount="2"
+      		   Removed="TagControl_Removed">
+	<pu:TagControl.ItemContainerStyle>
+    	<Style TargetType="pu:TagItem">
+    		<Setter Property="Removable"
+					Value="{Binding Removable}" />
+        	<Style.Triggers>
+            	<Trigger Property="ItemsControl.AlternationIndex"
+                         Value="0">
+                	<Setter Property="Background"
+                            Value="#FF5D5D" />
+                    <Setter Property="HoverBrush"
+                            Value="#FF4C4C" />
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex"
+                         Value="1">
+                	<Setter Property="Background"
+                            Value="#6AC2FF"></Setter>
+                    <Setter Property="HoverBrush"
+                            Value="#3FB0FF"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </pu:TagControl.ItemContainerStyle>
+</pu:TagControl>
+```
+TagControl中的依赖属性： 
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| ItemHeight | Double | 30 | 获取或设置标签板子项的统一高度。 |
+| ItemCornerRadius | CornerRadius | 15 | 获取或设置标签板子项的统一圆角大小。 |
+| ItemRemovable | Boolean | True | 获取或设置标签板子项是否可以被移除。用户按下移除按钮时，将触发Removing事件。你可以在该事件的处理方法中将e.Cancel设为True，以阻止该操作。若该操作未被阻止，标签板会尝试将子项移除，并触发Removed事件。在MVVM模式（即使用ItemsSource属性）下，标签板无法自动移除子项。你必须对Removed事件添加手动处理，将数据对象从数据源中移除。 |
+| HorizontalScrollBarVisibility | ScrollBarVisibility | Disabled | 获取或设置标签板的水平滚动条显示状态。 |
+| VerticalScrollBarVisibility | ScrollBarVisibility | Auto | 获取或设置标签板的垂直滚动条显示状态。 |
+| VerticalSpacing | Double | 10 | 获取或设置标签板子项的垂直间距。 |
+| HorizontalSpacing | Double | 10 | 获取或设置标签板子项的水平间距。 |
+
+TagControl中的事件：  
+| 事件名称 | 事件参数 | 事件描述 |
+| - | - | - |
+| Removing | CancelableEventArgs | 指示子项正在被移除。可以将e.Cancel设置为True以阻止此操作。 |
+| Removed | RoutedEventArgs | 指示子项已应被删除。在MVVM模式（即使用ItemsSource属性）下，标签板无法自动移除子项。你必须对Removed事件添加手动处理，将数据对象从数据源中移除。 |
+
+TagItem中的依赖属性：  
+| 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
+| - | - | - | - |
+| HoverBrush | Brush | #3E3E3E | 获取或设置鼠标悬浮时标签项的背景色。 |
+| CornerRadius | CornerRadius | 15 (From TagControl) | 获取或设置标签项的圆角大小。 |
+| RemoveButtonStyle | Style | - | 获取或设置标签项移除按钮的样式。 |
+| Removable | Boolean | True (From TagControl) | 获取或设置标签项是否可以被移除。用户按下移除按钮时，将触发TagControl父容器的Removing事件。你可以在该事件的处理方法中将e.Cancel设为True，以阻止该操作。若该操作未被阻止，标签板会尝试将子项移除，并触发TagControl父容器的Removed事件。在MVVM模式（即使用ItemsSource属性）下，标签板无法自动移除子项。你必须对TagControl父容器的Removed事件添加手动处理，将数据对象从数据源中移除。 |
 
 ### MessageBoxX 消息框
 

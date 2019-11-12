@@ -1,4 +1,19 @@
-# Release Note  
+# Release Note
+
+## 2019-11-12 v1.0.9
+修复ColorPicker点击控件外区域时不能自动关闭的问题，新增了HeaderWidth属性。  
+修复ColorSelector的SelectedBrush赋值为null时崩溃的问题。  
+修复了LayoutHelper的RowDefinition无效的问题。  
+修复了WaterfallPanel中的控件设置高度无效的问题。  
+为Slider控件新增了Header和HeaderWidth属性。  
+新增了CheckBox和RadioButton的Selector样式。  
+新增了TextBlock控件。MatchText和MatchedForeground属性可以用来高亮指定的文字，AutoAdaptation和ExceededTextFiller属性可以将超出显示边界的文本显示为省略号或其他文字。详见文档：  
+新增了AnimateWrapPanel控件，该控件继承自WrapPanel。当其Children发生变化时，将产生一个重新排列的动画效果。详见文档：  
+Timeline控件重做，新增TimelineItem控件。该控件默认启用了虚拟化。文档：  
+移除了TagPanel控件，新增了TagControl和TagItem控件。该控件不支持虚拟化。文档：  
+
+
+
 
 ## 2019-11-6 v1.0.8.8
 修复ComboBox的IsEditable属性设置为True时，Padding属性未对输入框生效的问题。  
@@ -138,6 +153,6 @@ public string Name { get;set; }
 
 [IgnoreColumn()]
 public object CustomData { get;set; }
-```  
+```
 新增了MouseEventHelper辅助类。  
 
