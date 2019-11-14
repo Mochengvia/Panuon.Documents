@@ -12,7 +12,7 @@
 - [控件库](#控件库)
     - [WindowX 窗体X](#windowx-窗体x)
     - [Button 按钮 / RepeatButton 重复按钮](#button-按钮--repeatbutton-重复按钮)
-    - [TextBlock 文本控件](#textblock-文本控件)
+    - [PUTextBlock 文本控件](#putextblock-文本控件)
     - [TextBox 文本输入框](#textbox-文本输入框)
     - [PasswordBox 密码输入框](#passwordbox-密码输入框)
     - [CheckBox 多选框](#checkbox-多选框)
@@ -216,13 +216,13 @@ A: 添加以下样式：
 
 ***
 
-### TextBlock 文本控件
+### PUTextBlock 文本控件
 代码示例:  
 
 ```
-<pu:TextBlock Text="Thanks for using panuon ui."
-			  MatchText="panuon" 
-			  MatchedForeground="#FFC4C4"/>
+<pu:PUTextBlock Text="Thanks for using panuon ui."
+			    MatchText="panuon" 
+			    MatchedForeground="#FFC4C4"/>
 ```
 
 TextBlock是一个派生自UserControl的用户控件。该控件可高亮指定文字，或将超出显示边界的文本显示为省略号，或指定文本。请注意，该控件没有Inlines属性，不能向其中添加<Run>。  
