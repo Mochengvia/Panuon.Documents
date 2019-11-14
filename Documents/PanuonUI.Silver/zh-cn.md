@@ -216,7 +216,7 @@ A: 添加以下样式：
 
 ***
 
-### TextBlock 文本
+### TextBlock 文本控件
 代码示例:  
 
 ```
@@ -856,9 +856,9 @@ GroupBoxHelper 中的附加属性：
 示例：  
 ```
     <pu:AnimateWrapPanel Width="200" 
-    					 ItemHeight="30"
-      					 VerticalSpacing="10"
-      					 HorizontalSpacing="10">
+    			 ItemHeight="30"
+      			 VerticalSpacing="10"
+      			 HorizontalSpacing="10">
     	<Button Content="1"/>
     	<Button Content="2"/>
     	<Button Content="3"/>
@@ -881,33 +881,33 @@ AnimateWrapPanel中的依赖属性：
 ```
 <pu:Timeline Width="200">
 	<pu:TimelineItem Header="Title 1"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 	<pu:TimelineItem Header="Title 2"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 	<pu:TimelineItem Header="Title 3"
-    				 Content="Put your text here." />
+    			 Content="Put your text here." />
 </pu:Timeline>
 
 <pu:Timeline Width="200"
-			 ItemsSource="{Binding TimelineItems}"
-    		 DisplayMemberPath="Content"
-    		 HeaderMemberPath="Header" />
+	     ItemsSource="{Binding TimelineItems}"
+    	     DisplayMemberPath="Content"
+    	     HeaderMemberPath="Header" />
 
 <pu:Timeline Width="200"
-      		 ItemsSource="{Binding TimelineItems}">
-	<pu:Timeline.ItemContainerStyle>
+      	     ItemsSource="{Binding TimelineItems}">
+    <pu:Timeline.ItemContainerStyle>
     	<Style TargetType="{x:Type pu:TimelineItem}">
         </Style>
     </pu:Timeline.ItemContainerStyle>
     <pu:Timeline.HeaderTemplate>
     	<DataTemplate>
-        	<TextBlock Text="{Binding Header}"
+            <TextBlock Text="{Binding Header}"
                        FontWeight="Bold"/>
-            </DataTemplate>
-        </pu:Timeline.HeaderTemplate>
+        </DataTemplate>
+    </pu:Timeline.HeaderTemplate>
     <pu:Timeline.ItemTemplate>
     	<DataTemplate>
-              <TextBlock Text="{Binding Content}" />
+            <TextBlock Text="{Binding Content}" />
         </DataTemplate>
     </pu:Timeline.ItemTemplate>
 </pu:Timeline>
@@ -915,6 +915,7 @@ AnimateWrapPanel中的依赖属性：
 Timeline使用VirtualizationStackPanel作为子项容器，默认启用了虚拟化，你可以使用HorizontalScrollBarVisibility和VerticalScrollBarVisibility属性来控制滚动条的显隐。请注意，若Timeline被放置在ScrollViewer控件中，或将ScrollViewer.CanContentScroll设置为False，该控件的虚拟化将失效。  
 
 Timeline中的依赖属性： 
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | TimelimeStripPlacement | TimelimeStripPlacement | Left[/Right/Top/Bottom] (From Timeline) | 获取或设置时间轴子项中时间轴的位置。 |
@@ -934,6 +935,7 @@ Timeline中的依赖属性：
 | VerticalScrollBarVisibility | ScrollBarVisibility | Auto | 获取或设置时间轴的垂直滚动条显示状态。 |
 
 TimelineItem中的依赖属性：  
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | Icon | Object | Null | 获取或设置时间轴项的图标，该图标将显示在圆形符号上。 |
@@ -952,35 +954,35 @@ TimelineItem中的依赖属性：
 示例：  
 ```
 <pu:TagControl Width="200"
-      		   Removing="TagControl_Removing"
-      		   Removed="TagControl_Removed">
-	<pu:TagItem Content="Admin" 
-				Removable="False"/>
-	<pu:TagItem Content="Jack" />
-	<pu:TagItem Content="White" />
+      	       Removing="TagControl_Removing"
+      	       Removed="TagControl_Removed">
+    <pu:TagItem Content="Admin" 
+		Removable="False"/>
+    <pu:TagItem Content="Jack" />
+    <pu:TagItem Content="White" />
 </pu:TagControl>
 
 <!--TagControl with alternation-->
 <pu:TagControl Width="200"
-      		   ItemsSource="{Binding Tags}"
-      		   DisplayMemberPath="DisplayName"
-      		   AlternationCount="2"
-      		   Removed="TagControl_Removed">
-	<pu:TagControl.ItemContainerStyle>
+      	       ItemsSource="{Binding Tags}"
+      	       DisplayMemberPath="DisplayName"
+      	       AlternationCount="2"
+      	       Removed="TagControl_Removed">
+    <pu:TagControl.ItemContainerStyle>
     	<Style TargetType="pu:TagItem">
-    		<Setter Property="Removable"
-					Value="{Binding Removable}" />
-        	<Style.Triggers>
+    	    <Setter Property="Removable"
+		    Value="{Binding Removable}" />
+            <Style.Triggers>
             	<Trigger Property="ItemsControl.AlternationIndex"
                          Value="0">
-                	<Setter Property="Background"
+                    <Setter Property="Background"
                             Value="#FF5D5D" />
                     <Setter Property="HoverBrush"
                             Value="#FF4C4C" />
                 </Trigger>
                 <Trigger Property="ItemsControl.AlternationIndex"
                          Value="1">
-                	<Setter Property="Background"
+                    <Setter Property="Background"
                             Value="#6AC2FF"></Setter>
                     <Setter Property="HoverBrush"
                             Value="#3FB0FF"></Setter>
@@ -991,6 +993,7 @@ TimelineItem中的依赖属性：
 </pu:TagControl>
 ```
 TagControl中的依赖属性： 
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | ItemHeight | Double | 30 | 获取或设置标签板子项的统一高度。 |
@@ -1002,12 +1005,14 @@ TagControl中的依赖属性：
 | HorizontalSpacing | Double | 10 | 获取或设置标签板子项的水平间距。 |
 
 TagControl中的事件：  
+
 | 事件名称 | 事件参数 | 事件描述 |
 | - | - | - |
 | Removing | CancelableEventArgs | 指示子项正在被移除。可以将e.Cancel设置为True以阻止此操作。 |
 | Removed | RoutedEventArgs | 指示子项已应被删除。在MVVM模式（即使用ItemsSource属性）下，标签板无法自动移除子项。你必须对Removed事件添加手动处理，将数据对象从数据源中移除。 |
 
 TagItem中的依赖属性：  
+
 | 属性名称 | 属性类型 | 默认值[其他值] | 描述 |
 | - | - | - | - |
 | HoverBrush | Brush | #3E3E3E | 获取或设置鼠标悬浮时标签项的背景色。 |
