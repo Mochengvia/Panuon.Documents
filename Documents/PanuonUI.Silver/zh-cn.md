@@ -187,7 +187,7 @@ ButtonHelper  / RepeatButtonHelper 中的附加属性：
 | ButtonStyle | ButtonStyle | Standard[/Outline/Hollow/Link] | 获取或设置按钮的基本样式。 |
 | ClickStyle | ClickStyle | None[/Sink] | 获取或设置鼠标点击时按钮的样式。 |
 | HoverBrush | Brush | #3E3E3E | 获取或设置鼠标悬浮时按钮的遮罩层。 |
-| ClickCoverBrush | Brush | #22FFFFFF | 获取或设置鼠标点击时按钮的遮罩层。 |
+| ClickCoverOpacity | Double | 0.8 | 获取或设置鼠标点击时按钮的透明度（不影响按钮的透明度属性）。 |
 | CornerRadius | CornerRadius | 0,0,0,0 | 获取或设置按钮的圆角大小。 |
 | IsWaiting | Boolean | False | 获取或设置按钮是否处于等待模式。在等待模式时，按钮将处于禁用状态，并显示出一个Loading控件和WaitingContent的内容。 |
 | WaitingContent | Object | "Please wait..." | 获取或设置按钮在IsWaiting为True时显示的内容。 |
