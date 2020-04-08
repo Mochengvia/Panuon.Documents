@@ -1164,7 +1164,7 @@ PendingBox.Show("Classic !", "Classic", configKey: "ClassicTheme");
 ```
 
 ### 对于Button、CheckBox等控件，即使进行了上述操作，一些属性值还是没有生效。
-对于有Style枚举属性的控件（例如Button的ButtonStyle，CheckBox的CheckBoxStyle），当这些属性值发生变化时，PanuonUI.Silver可能会将不同于默认样式的属性值应用到附加属性或依赖属性上。该操作发生在Style的Setters之后，因此你设置的属性值会被其覆盖。最佳的方法是，将属性设置放在DataTrigger中。以Button为例，样式如下：  
+对于有Style枚举属性的控件（例如Button的ButtonStyle，CheckBox的CheckBoxStyle），当这些属性值发生变化时，PanuonUI.Silver可能会将不同于默认样式的属性值应用到附加属性或依赖属性上。该操作发生在Style的Setters之后，因此你设置的属性值会被其覆盖。最佳的方法是，将属性设置放在Trigger中。以Button为例，样式如下：  
 
 ```xml
 <Style TargetType="Button"
@@ -1172,13 +1172,13 @@ PendingBox.Show("Classic !", "Classic", configKey: "ClassicTheme");
     <Setter Property="pu:ButtonHelper.ButtonStyle" 
             Value="Outline"/>
     <Style.Triggers>
-        <DataTrigger Binding="{Binding Path=(pu:ButtonHelper.ButtonStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+        <Trigger Property="pu:ButtonHelper.ButtonStyle"
                     Value="Outline">
             <Setter Property="pu:ButtonHelper.CornerRadius"
                     Value="15"/>
             <Setter Property="pu:ButtonHelper.ClickStyle"
                     Value="Sink"/>
-        </DataTrigger>
+        </Trigger>
     </Style.Triggers>
 </Style>
 ```
@@ -1191,13 +1191,13 @@ PendingBox.Show("Classic !", "Classic", configKey: "ClassicTheme");
     <Setter Property="pu:CheckBoxHelper.CheckBoxStyle" 
             Value="Switch"/>
     <Style.Triggers>
-        <DataTrigger Binding="{Binding Path=(pu:CheckBoxHelper.CheckBoxStyle),RelativeSource={RelativeSource Self}, Mode=OneWay}"
+        <Trigger Property="pu:CheckBoxHelper.CheckBoxStyle"
                     Value="Switch">
             <Setter Property="pu:CheckBoxHelper.BoxHeight"
                     Value="30"/>
             <Setter Property="pu:CheckBoxHelper.BoxWidth"
                     Value="45"/>
-        </DataTrigger>
+        </Trigger>
     </Style.Triggers>
 </Style>
 ```
