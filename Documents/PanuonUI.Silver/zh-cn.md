@@ -83,7 +83,7 @@ xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
             pu:ButtonHelper.ButtonStyle="Link"
             pu:ButtonHelper.CornerRadius="15"
             Height="30"
-            Width="150">
+            Width="150"/>
     </Gird>
 </pu:WindowX>
 ```
